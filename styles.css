@@ -1543,3 +1543,16 @@ body {
     padding: 16px 6%;
   }
 }
+
+@media (max-width: 600px) {
+
+  /* ...il resto delle regole che hai già... */
+
+  .tagline {
+    white-space: nowrap;       /* non andare a capo */
+    font-size: 8px;            /* più piccola per farcela stare */
+    letter-spacing: 0.14em;    /* un po’ meno spazio tra le lettere */
+    max-width: 100%;
+    overflow: hidden;          /* evita scroll orizzontale */
+  }
+}
