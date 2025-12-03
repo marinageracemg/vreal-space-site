@@ -1174,3 +1174,163 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+/* ==========================
+   TWEAK GENERALI MOBILE / TABLET
+============================== */
+
+/* Tablet */
+@media (max-width: 900px) {
+  body {
+    padding-top: 70px; /* topbar un po' più compatta */
+  }
+
+  .logo-mark img {
+    height: 70px;
+  }
+
+  .hero-slider {
+    height: 55vh;
+    min-height: 360px;
+  }
+
+  .works-slide img {
+    height: 220px;
+  }
+
+  .clients-logos {
+    padding: 8px 40px;
+    gap: 24px;
+  }
+
+  .events-logos {
+    gap: 24px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .hero-slider {
+    height: 60vh;
+    min-height: 320px;
+  }
+
+  .hero-arrow {
+    font-size: 24px;
+    padding: 6px 10px;
+  }
+
+  .hero-content h1 {
+    font-size: 18px;
+    letter-spacing: 0.12em;
+    max-width: 90%;
+  }
+
+  .clients-section,
+  .contact-section,
+  .contact-social-section,
+  .social-section,
+  .events-section {
+    padding-left: 6%;
+    padding-right: 6%;
+  }
+
+  .works-slide img {
+    height: 190px;
+  }
+
+  .social-column h3 {
+    text-align: left;
+  }
+}
+
+/* ==========================
+   ADATTAMENTI TABLET
+   (max 900px)
+============================== */
+@media (max-width: 900px) {
+
+  .hero-slider {
+    height: 55vh;
+    min-height: 420px;
+  }
+
+  .info-section {
+    padding: 50px 6% 30px;
+  }
+
+  .works-section {
+    padding: 50px 0 60px;
+  }
+
+  .clients-section {
+    padding: 40px 6% 50px;
+  }
+
+  .events-section {
+    padding: 40px 6% 50px;
+  }
+
+  .contact-section {
+    padding: 50px 6% 60px;
+  }
+
+  .social-section {
+    padding: 40px 6% 50px;
+  }
+
+  .contact-social-section {
+    padding: 40px 6% 50px;
+  }
+
+  .site-footer {
+    margin-top: 30px;
+    padding: 16px 6%;
+  }
+}
+
+/* ==========================
+   ADATTAMENTI MOBILE
+   (max 600px)
+============================== */
+@media (max-width: 600px) {
+
+  body {
+    padding-top: 70px; /* topbar un filo più piccola */
+  }
+
+  .topbar {
+    padding: 8px 14px;
+  }
+
+  .logo-mark img {
+    height: 70px;
+  }
+
+  .info-section {
+    padding: 40px 6% 20px;
+  }
+
+  .works-section {
+    padding: 40px 0 40px;
+  }
+
+  .clients-section,
+  .events-section,
+  .contact-section,
+  .social-section,
+  .contact-social-section {
+    padding-top: 35px;
+    padding-bottom: 40px;
+  }
+
+  .hero-content h1 {
+    font-size: 18px;
+    letter-spacing: 0.12em;
+  }
+
+  .scroll-down {
+    bottom: 60px;
+  }
+}
+
