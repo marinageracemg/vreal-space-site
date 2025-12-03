@@ -5,6 +5,12 @@
   box-sizing: border-box;
 }
 
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;   /* niente scroll laterale */
+}
+
 body {
   background: #000;
   font-family: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
@@ -1334,3 +1340,25 @@ body {
   }
 }
 
+@media (max-width: 600px) {
+
+  /* meno spazio vuoto tra info-card e lavori */
+  .works-section {
+    padding-top: 30px;
+    padding-bottom: 40px;
+  }
+
+  /* titolo e slider con lo stesso padding laterale */
+  .works-header {
+    padding: 0 16px;
+    text-align: center;
+  }
+
+  .works-slider {
+    padding: 0 16px;
+  }
+
+  .works-slide img {
+    height: 190px;
+  }
+}
