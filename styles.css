@@ -1,0 +1,1176 @@
+/* Reset minimo */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #000;
+  font-family: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #fff;
+  padding-top: 80px;     /* altezza approssimativa della topbar */
+}
+
+
+/* TOP BAR */
+.topbar {
+  position: fixed;      /* la barra resta in alto anche scrollando */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;        /* sopra slider e tutto il resto */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3px 40px;
+  background: #000;
+  border-bottom: 1px solid #111;
+}
+
+
+/* --- BLOCCO SINISTRO --- */
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Logo simbolo */
+.logo-mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-mark img {
+  height: 90px;      /* puoi aumentare o diminuire */
+  width: auto;
+}
+
+.logo-v {
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  font-size: 18px;
+}
+
+/* Chevron sopra e sotto la V */
+.logo-chevron {
+  position: absolute;
+  left: 50%;
+  width: 18px;
+  height: 18px;
+  border-left: 1px solid #fff;
+  border-top: 1px solid #fff;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.chevron-up {
+  top: -2px;
+}
+
+.chevron-down {
+  bottom: -2px;
+  transform: translateX(-50%) rotate(225deg);
+}
+
+/* Nome brand */
+
+
+/* --- TESTO CENTRALE --- */
+
+.topbar-center {
+  flex: 1;
+  text-align: center;
+  padding: 0 40px;
+}
+
+.tagline {
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* --- BLOCCO DESTRO --- */
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Cerchi social */
+.social-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.social-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: transparent;      /* niente sfondo */
+  border: 1px solid #fff;       /* cerchio bianco sottile */
+  text-decoration: none;
+}
+
+.social-btn img {
+  width: 70%;
+  height: 70%;
+  object-fit: contain;
+}
+
+/* Select lingua */
+
+
+.lang-arrow {
+  font-size: 10px;
+}
+
+/* ---- MENU A TENDINA LINGUE ---- */
+
+.lang-switcher {
+  position: relative;
+}
+
+.lang-switcher {
+  position: relative;
+  border: none;        
+}
+
+.lang-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  background: transparent;
+  border: 1px solid #555;
+  color: #fff;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.15em;
+}
+
+.lang-btn .lang-arrow {
+  transition: transform 0.2s;
+}
+
+.lang-menu {
+  list-style: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: #000;
+  border: 1px solid #555;
+  display: none;             /* nascosto di default */
+}
+
+.lang-menu li {
+  padding: 10px 18px;
+  font-size: 12px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.lang-menu li:hover {
+  background: #111;
+}
+
+/* quando il menu è aperto */
+.lang-switcher.open .lang-menu {
+  display: block;
+}
+
+.lang-switcher.open .lang-arrow {
+  transform: rotate(180deg);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 900px) {
+  .topbar {
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 12px 16px;
+  }
+
+  .topbar-center {
+    order: 3;
+    width: 100%;
+    padding: 0;
+    margin-top: 6px;
+  }
+
+  .tagline {
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    white-space: normal;
+  }
+}
+
+/* =========================
+   HERO SLIDER (VIDEO)
+   ========================= */
+
+.hero-slider {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  max-height: 800px;
+  min-height: 480px;
+  overflow: hidden;
+}
+
+
+
+/* Ogni slide occupa tutto lo schermo */
+.hero-slide {
+  position: absolute;
+  inset: 0; /* top/right/bottom/left: 0 */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+}
+
+/* Video full-screen */
+.hero-slide video {
+  width: 100%;              /* riduce la larghezza */
+  height: 100%;
+  object-fit: cover;
+  margin: 0 auto;          /* centra il video */
+  display: block;
+  border-radius: 20px;     /* opzionale */
+}
+
+
+/* Slide visibile */
+.hero-slide.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Overlay scuro sopra il video */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+/* Testo al centro */
+.hero-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 40px;
+  z-index: 1;
+}
+
+.hero-content h1 {
+    font-weight: 400;
+    font-size: clamp(26px, 3vw, 42px);
+    letter-spacing: 0.18em;
+    text-transform: none;
+    max-width: 80%;       /* << QUI STRINGE IL TESTO */
+    margin: 0 auto;       /* centra l’h1 anche se ha max-width */
+    text-align: center;   /* mantiene testo centrato */
+}
+
+
+/* Frecce */
+.hero-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  color: #fff;
+  font-size: 32px;
+  cursor: pointer;
+  padding: 10px 16px;
+  z-index: 2;
+}
+
+.hero-prev {
+  left: 40px;
+}
+
+.hero-next {
+  right: 40px;
+}
+
+.hero-arrow:hover {
+  opacity: 0.7;
+}
+
+/* Pallini */
+.hero-dots {
+  position: absolute;
+  bottom: 35px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 2;
+}
+
+.hero-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1px solid #fff;
+  background: transparent;
+  cursor: pointer;
+}
+
+.hero-dot.active {
+  background: #fff;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .hero-prev {
+    left: 16px;
+  }
+
+  .hero-next {
+    right: 16px;
+  }
+
+  .hero-content {
+    padding: 0 16px;
+  }
+
+  .hero-content h1 {
+    font-size: 20px;
+    letter-spacing: 0.12em;
+  }
+}
+
+/* Freccia scroll down */
+.scroll-down {
+  position: absolute;
+  bottom: 80px; /* ← alzata rispetto ai pallini (prima 40px) */
+  left: 50%;
+
+  width: 18px;   /* ← più piccola (prima 24px) */
+  height: 18px;  /* ← più piccola (prima 24px) */
+
+  border-left: 2px solid rgba(255, 255, 255, 0.7); 
+  border-bottom: 2px solid rgba(255, 255, 255, 0.7);
+
+  transform: translateX(-50%) rotate(-45deg);
+  opacity: 0.8;
+  cursor: pointer;
+  animation: scroll-bounce 1.6s infinite;
+  z-index: 10;
+}
+
+
+
+
+/* Effetto “rimbalzo” leggero */
+@keyframes scroll-bounce {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0) rotate(-45deg);
+  }
+  50% {
+    transform: translateX(-50%) translateY(8px) rotate(-45deg);
+  }
+}
+/* --- Sezione Chi Siamo --- */
+/* --- Sezione Chi Siamo --- */
+/* =====================================
+   SEZIONE INFO: CHI SIAMO / COSA FACCIAMO / CON CHI COLLABORIAMO
+   ===================================== */
+
+.info-section {
+  padding: 80px 8% 1px; /* sopra - laterali - sotto */
+  background: #000;
+  color: #fff;
+}
+
+
+/* Griglia a 3 colonne */
+.info-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 40px;
+}
+
+/* Card singola */
+.info-card {
+  border-radius: 32px;
+  border: 1px solid #333;
+  padding: 32px 28px;
+  text-align: center;
+  background: radial-gradient(circle at top, #181818 0%, #000 60%);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* Effetto hover leggero */
+.info-card:hover {
+  transform: translateY(-8px);
+  border-color: #666;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.8);
+}
+
+/* Titolo card */
+.info-card h3 {
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+/* Lista punti */
+.info-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.info-list li {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+/* --- Responsive --- */
+
+/* Da tablet: 2 colonne */
+@media (max-width: 900px) {
+  .info-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Da mobile: 1 colonna */
+@media (max-width: 600px) {
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .info-card {
+    padding: 28px 22px;
+  }
+
+  .info-card h3 {
+    font-size: 16px;
+  }
+
+  .info-list li {
+    font-size: 13px;
+  }
+}
+
+/* ==========================
+   Sezione video di presentazione
+============================== */
+
+/* --- Sezione video presentazione --- */
+.video-section {
+  padding: 30px 0 120px;
+  background: #000;      /* stesso sfondo del sito */
+  display: flex;
+  justify-content: center;
+}
+
+.video-wrapper {
+  position: relative;    /* necessario per il bottone audio */
+  max-width: 1200px;
+  width: 90%;
+  margin: 0 auto;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+.video-wrapper video {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  border-radius: 24px;
+}
+
+/* --- Bottone audio ON/OFF --- */
+.video-sound-toggle {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  padding: 10px 12px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.6); /* nero semitrasparente */
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+  transition: background 0.2s ease;
+}
+
+.video-sound-toggle:hover {
+  background: rgba(0, 0, 0, 0.85);
+}
+
+/* ====== SEZIONE LAVORI / PORTFOLIO ====== */
+
+.works-section {
+  background: #000;
+  padding: 80px 0 100px;
+  color: #fff;
+}
+
+.works-header {
+  max-width: 1200px;
+  margin: 0 auto 40px;
+  padding: 0 32px;
+}
+
+.works-header h2 {
+  font-size: 28px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-align: left;
+}
+
+/* Contenitore slider (frecce + riga immagini) */
+.works-slider {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 32px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Frecce */
+.works-arrow {
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+}
+
+.works-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);   /* centra verticalmente */
+  z-index: 10;
+}
+.works-prev {
+  left: 0;   /* o -10px se vuoi più esterno */
+}
+
+.works-next {
+  right: 0;  /* o -10px se vuoi più esterno */
+}
+
+
+.works-arrow:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #fff;
+  transform: translateY(-1px);
+}
+
+/* Area che scorre orizzontalmente */
+.works-track {
+  flex: 1;
+  overflow-x: auto;      /* scroll orizzontale */
+  overflow-y: hidden;
+}
+
+/* UNA sola riga di immagini */
+.works-slide {
+  display: flex;
+  flex-wrap: nowrap;     /* niente a capo */
+  gap: 16px;
+}
+
+/* Immagini lavori in riga */
+.works-slide img {
+  flex: 0 0 auto;        /* non si comprimono */
+  height: 260px;         /* regola come vuoi */
+  width: auto;
+  object-fit: cover;
+  display: block;
+  border-radius: 16px;
+}
+
+/* Responsive solo per il titolo/ padding */
+@media (max-width: 640px) {
+  .works-slider {
+    padding: 0 16px;
+  }
+
+  .works-header h2 {
+    font-size: 22px;
+    text-align: center;
+  }
+}
+/* Nasconde scrollbar su tutti i browser */
+.works-track {
+  overflow-x: scroll;    /* serve per far scorrere con JS */
+  overflow-y: hidden;
+  scrollbar-width: none; /* Firefox */
+}
+
+.works-track::-webkit-scrollbar {
+  display: none;         /* Chrome, Safari */
+}
+
+
+/* ==========================
+   SEZIONE CLIENTI / COLLABORAZIONI
+============================== */
+
+.clients-section {
+  background: #000;
+  padding: 60px 8% 80px;
+  color: #fff;
+  border-top: 1px solid #111;
+}
+
+.clients-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.clients-section h2 {
+  font-size: 26px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.clients-subtitle {
+  font-size: 14px;
+  font-weight: 300;
+  color: #aaa;
+  max-width: 520px;
+  margin: 0 auto 32px;
+  line-height: 1.6;
+}
+
+/* Contenitore slider (frecce + loghi) */
+.clients-slider {
+  position: relative;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+/* RIGA loghi scrollabile orizzontalmente */
+.clients-logos {
+  display: flex;
+  flex-wrap: nowrap;          /* tutti in una riga */
+  gap: 32px;
+  align-items: center;
+  justify-content: flex-start;  /* <-- NON centrati, partono da sinistra */
+  overflow-x: auto;             /* scroll orizzontale se non ci stanno */
+  padding: 8px 80px;            /* spazio ai lati per le frecce */
+  scrollbar-width: none;        /* Firefox */
+}
+
+.clients-logos::-webkit-scrollbar {
+  display: none;                /* Chrome/Safari */
+}
+
+/* Singolo logo */
+.client-logo {
+  flex: 0 0 auto;
+  padding: 10px 14px;
+  border-radius: 16px;
+  background: radial-gradient(circle at top, #181818 0%, #000 60%);
+  border: 1px solid #222;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.client-logo img {
+  max-height: 35px;      /* altezza controllata */
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.85;
+  transition: filter 0.25s ease, opacity 0.25s ease;
+}
+
+.client-logo:hover {
+  transform: translateY(-4px);
+  border-color: #555;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.8);
+}
+
+.client-logo:hover img {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+/* Frecce laterali (stile simile a portfolio) */
+.clients-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+  z-index: 10;
+}
+
+.clients-arrow:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #fff;
+  transform: translateY(-52%);
+}
+
+/* Posizione frecce */
+.clients-prev {
+  left: 0;
+}
+
+.clients-next {
+  right: 0;
+}
+
+/* responsive */
+@media (max-width: 600px) {
+  .clients-section {
+    padding: 50px 6% 60px;
+  }
+
+  .clients-section h2 {
+    font-size: 22px;
+  }
+
+  .clients-subtitle {
+    font-size: 13px;
+  }
+}
+
+
+
+/* ==========================
+   SEZIONE CONTATTI
+============================== */
+
+.contact-section {
+  background: #000;
+  padding: 80px 8% 100px;
+  color: #fff;
+  border-top: 1px solid #111;
+}
+
+.contact-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 48px;
+  align-items: flex-start;
+}
+
+/* Testo sinistra */
+.contact-text h2 {
+  font-size: 28px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.contact-text p {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.6;
+  max-width: 420px;
+  margin-bottom: 24px;
+}
+
+.contact-info p {
+  font-size: 13px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+/* Form destra */
+.contact-form-wrapper {
+  background: radial-gradient(circle at top, #181818 0%, #000 60%);
+  border-radius: 24px;
+  border: 1px solid #333;
+  padding: 28px 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 16px;
+}
+
+.contact-form span {
+  display: block;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid #444;
+  background: #050505;
+  color: #fff;
+  padding: 10px 12px;
+  font-family: inherit;
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #888;
+  box-shadow: 0 0 0 1px #888;
+}
+
+.contact-submit {
+  margin-top: 8px;
+  border: none;
+  border-radius: 999px;
+  padding: 10px 22px;
+  background: #fff;
+  color: #000;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+}
+
+.contact-submit:hover {
+  background: #e5e5e5;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.6);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .contact-inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .contact-text h2 {
+    text-align: left;
+  }
+}
+
+@media (max-width: 600px) {
+  .contact-section {
+    padding: 60px 6% 80px;
+  }
+
+  .contact-form-wrapper {
+    padding: 22px 18px;
+  }
+}
+
+/* FOOTER */
+.site-footer {
+  width: 100%;
+  padding: 25px 0 30px;
+  text-align: center;
+  background: #000;
+  color: #aaa;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  margin-top: 60px;
+}
+
+/* Linea di divisione */
+.footer-line {
+  width: 90%;
+  max-width: 1200px;
+  height: 1px;
+  background: linear-gradient(to right, #111, #333, #111);
+  margin: 0 auto 18px;
+  opacity: 0.6;
+}
+
+.footer-copy {
+  margin-top: 10px;
+  font-size: 11px;
+  color: #666;
+  letter-spacing: 0.1em;
+}
+
+/* Linea sottile sopra il footer */
+.footer-separator {
+  width: 100%;
+  border: 0;
+  border-top: 1px solid #333; /* sottile linea grigio scuro */
+  margin: 40px 0 0 0;
+}
+
+/* Footer */
+.site-footer {
+  width: 100%;
+  text-align: center;
+  padding: 12px 10px;
+  font-size: 0.9rem;
+  color: #ccc;
+  background: #000; /* sfondo per staccare dal resto */
+  letter-spacing: 0.5px;
+  white-space: nowrap; /* evita andare a capo */
+}
+
+.site-footer span {
+  padding: 0 8px;
+}
+
+@media (max-width: 800px) {
+  .site-footer {
+    white-space: normal;   /* su mobile va a capo se serve */
+    line-height: 1.6;
+  }
+}
+
+/* ==========================
+   SEZIONE EVENTI
+============================== */
+
+.events-section {
+  background: #000;
+  padding: 60px 8% 80px;
+  color: #fff;
+  border-top: 1px solid #111;
+}
+
+.events-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.events-section h2 {
+  font-size: 26px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.events-subtitle {
+  font-size: 14px;
+  font-weight: 300;
+  color: #aaa;
+  max-width: 520px;
+  margin: 0 auto 32px;
+  line-height: 1.6;
+}
+
+/* Contenitore riga loghi */
+.events-slider {
+  display: flex;
+  justify-content: center;   /* centra il blocco loghi */
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Riga loghi centrata */
+.events-logos {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 40px;
+  align-items: center;
+  justify-content: center;   /* QUI il vero centro */
+  overflow-x: visible;       /* niente scroll orizzontale */
+  padding: 16px 0;
+}
+
+/* Logo singolo */
+.event-logo {
+  flex: 0 0 auto;
+  padding: 18px 20px;
+  border-radius: 16px;
+  background: radial-gradient(circle at top, #181818 0%, #000 60%);
+  border: 1px solid #222;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.event-logo img {
+  max-height: 50px;
+  width: auto;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.85;
+  transition: filter .25s ease, opacity .25s ease;
+}
+
+.event-logo:hover {
+  transform: translateY(-4px);
+  border-color: #555;
+}
+
+.event-logo:hover img {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+/* Se NON vuoi le frecce, puoi anche non usare questi stili e rimuovere i <button> dall'HTML */
+.events-arrow {
+  display: none;
+}
+
+/* ==========================
+   SEZIONE CONTATTI & SOCIAL
+============================== */
+
+.social-section {
+  background: #000;
+  padding: 70px 8% 80px;
+  color: #fff;
+  border-top: 1px solid #111;
+}
+
+.social-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.social-section h2 {
+  font-size: 26px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.social-subtitle {
+  font-size: 14px;
+  font-weight: 300;
+  color: #aaa;
+  max-width: 520px;
+  margin: 0 auto 32px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* griglia 3 colonne */
+.social-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 36px;
+}
+
+.social-column h3 {
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  color: #bbbbbb;
+}
+
+/* Riga: cerchio + testo */
+.social-line {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 14px;
+  text-decoration: none;
+  color: #fff;
+}
+
+/* cerchietto icona */
+.social-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: transparent;
+  overflow: hidden;
+}
+
+.social-icon img {
+  width: 60%;
+  height: 60%;
+  object-fit: contain;
+}
+
+/* testo a destra */
+.social-label {
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+}
+
+/* hover */
+.social-line:hover .social-label {
+  text-decoration: underline;
+}
+
+.social-line:hover .social-icon {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* responsive */
+@media (max-width: 900px) {
+  .social-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .social-grid {
+    grid-template-columns: 1fr;
+  }
+}
