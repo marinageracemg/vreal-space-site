@@ -1362,3 +1362,184 @@ body {
     height: 190px;
   }
 }
+
+/* ==========================
+   FIX TABLET
+   (da 601 a 900px circa)
+============================== */
+@media (max-width: 900px) and (min-width: 601px) {
+
+  body {
+    padding-top: 90px; /* topbar un po' più alta su tablet */
+  }
+
+  .topbar {
+    padding: 8px 20px;
+  }
+
+  .logo-mark img {
+    height: 70px;
+  }
+
+  .hero-slider {
+    height: 60vh;
+    min-height: 380px;
+  }
+
+  .hero-content {
+    padding: 0 24px;
+  }
+
+  .hero-content h1 {
+    max-width: 90%;
+    font-size: 22px;
+    letter-spacing: 0.14em;
+  }
+
+  /* padding laterali un po' ridotti */
+  .info-section,
+  .works-section,
+  .clients-section,
+  .events-section,
+  .contact-section,
+  .social-section {
+    padding-left: 6%;
+    padding-right: 6%;
+  }
+
+  /* info in 2 colonne su tablet */
+  .info-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ==========================
+   FIX MOBILE
+   (max 600px)
+============================== */
+@media (max-width: 600px) {
+
+  /* topbar più compatta e centrata */
+  body {
+    padding-top: 100px; /* la topbar va su 2 righe, così non copre l'hero */
+  }
+
+  .topbar {
+    padding: 8px 12px;
+    flex-wrap: wrap;
+    row-gap: 6px;
+  }
+
+  .topbar-left {
+    order: 1;
+  }
+
+  .topbar-right {
+    order: 2;
+  }
+
+  .topbar-center {
+    order: 3;
+    width: 100%;
+    padding: 0;
+    text-align: center;
+  }
+
+  .tagline {
+    font-size: 9px;
+    white-space: normal;     /* niente overflow orizzontale */
+    letter-spacing: 0.16em;
+  }
+
+  .logo-mark img {
+    height: 60px;
+  }
+
+  /* HERO: video piena larghezza e più “morbido” */
+  .hero-slider {
+    height: auto;
+    min-height: 70vh;
+  }
+
+  .hero-slide {
+    position: relative;
+  }
+
+  .hero-slide video {
+    border-radius: 0;        /* niente bordi arrotondati su mobile */
+    width: 100%;
+    height: 100%;
+  }
+
+  .hero-content {
+    padding: 0 16px;
+  }
+
+  .hero-content h1 {
+    max-width: 100%;
+    font-size: 18px;
+    letter-spacing: 0.12em;
+  }
+
+  .hero-prev {
+    left: 12px;
+  }
+
+  .hero-next {
+    right: 12px;
+  }
+
+  .scroll-down {
+    bottom: 50px;
+  }
+
+  /* INFO: una colonna sola */
+  .info-section {
+    padding: 40px 6% 20px;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  /* padding uniformati per tutte le sezioni */
+  .works-section,
+  .clients-section,
+  .events-section,
+  .contact-section,
+  .social-section {
+    padding-left: 6%;
+    padding-right: 6%;
+  }
+
+  /* slider lavori: titoli centrati, immagini più basse */
+  .works-header {
+    padding: 0 6%;
+    text-align: center;
+  }
+
+  .works-slider {
+    padding: 0 6%;
+  }
+
+  .works-slide img {
+    height: 190px;
+  }
+
+  /* griglie in una colonna */
+  .contact-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .social-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* footer che può andare a capo senza schiacciarsi a sinistra */
+  .site-footer {
+    white-space: normal;
+    line-height: 1.5;
+    padding: 16px 6%;
+  }
+}
