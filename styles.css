@@ -1551,3 +1551,67 @@ body {
     overflow: hidden;          /* evita scroll orizzontale */
   }
 }
+
+/* ==========================
+   MOBILE: TOPBAR + SLOGAN
+   (NON tocca il desktop)
+============================== */
+@media (max-width: 600px) {
+
+  .topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap !important;   /* forza una sola riga */
+    padding: 8px 12px;
+  }
+
+  .topbar-left,
+  .topbar-right {
+    flex: 0 0 auto;
+  }
+
+  .topbar-center {
+    order: 0;                       /* niente più riga sotto */
+    flex: 1 1 auto;
+    width: auto;
+    padding: 0 8px;
+    margin-top: 0;
+    text-align: center;
+  }
+
+  .tagline {
+    white-space: nowrap;
+    font-size: 8px;
+    letter-spacing: 0.14em;
+    max-width: 100%;
+    overflow: hidden;               /* evita scroll orizzontale */
+  }
+}
+
+/* ==========================
+   MOBILE: FIX HERO SLIDER
+============================== */
+@media (max-width: 600px) {
+
+  /* assicuriamoci che le slide restino sovrapposte */
+  .hero-slide {
+    position: absolute !important;
+  }
+
+  /* altezza fissa dello slider su mobile */
+  .hero-slider {
+    height: 60vh;
+    min-height: 360px;
+  }
+
+  .hero-content {
+    padding: 0 16px;
+  }
+
+  .hero-content h1 {
+    max-width: 100%;
+    font-size: 18px;
+    letter-spacing: 0.12em;
+  }
+}
