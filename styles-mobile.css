@@ -564,9 +564,9 @@ html, body {
 ============================== */
 @media (max-width: 600px) {
   .hero-content h1 {
-    max-width: 80%;      /* stringe il testo così non tocca le frecce */
+    max-width: 70%;      /* stringe il testo così non tocca le frecce */
     margin: 0 auto;      /* centra l'h1 all'interno */
-    font-size: 16px;     /* leggermente più piccolo */
+    font-size: 10px;     /* leggermente più piccolo */
     letter-spacing: 0.10em;  /* un filo meno largo */
   }
 }
