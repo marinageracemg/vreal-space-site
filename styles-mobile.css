@@ -233,6 +233,120 @@ html, body {
 
 /* ====================================
    TOPBAR: logo → slogan → icone
+   (vale per TUTTO <= 900px)
+==================================== */
+@media (max-width: 900px) {
+
+  .topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;              /* tutto su una sola riga */
+    gap: 8px;
+    padding: 6px 10px;
+  }
+
+  /* ordine corretto dei 3 blocchi */
+  .topbar-left {
+    order: 0 !important;            /* LOGO per primo */
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .topbar-center {
+    order: 1 !important;            /* SLOGAN al centro */
+    flex: 1 1 auto;
+    width: auto !important;
+    margin-top: 0 !important;
+    padding: 0 8px;
+    text-align: center;
+  }
+
+  .topbar-right {
+    order: 2 !important;            /* SOCIAL + LINGUE a destra */
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* dimensioni ridotte per farci stare tutto */
+  .logo-mark img {
+    height: 32px;
+    width: auto;
+    display: block;
+  }
+
+  .tagline {
+    font-size: 8px;
+    letter-spacing: 0.14em;
+    white-space: normal !important; /* può andare a capo */
+    word-break: break-word;
+    line-height: 1.3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .social-btn {
+    width: 24px;
+    height: 24px;
+    border-width: 1px;
+  }
+
+  .social-btn img {
+    width: 70%;
+    height: 70%;
+    object-fit: contain;
+  }
+
+  .lang-btn {
+    padding: 4px 8px;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+  }
+}
+
+/* ==========================
+   MOBILE/TABLET: FIX MENU LINGUE
+============================== */
+@media (max-width: 900px) {
+
+  .lang-switcher {
+    position: relative;   /* riferimento per il menu */
+  }
+
+  /* la topbar non deve tagliare quello che esce fuori */
+  .topbar,
+  .lang-switcher {
+    overflow: visible !important;
+  }
+
+  .lang-menu {
+    position: absolute;
+    top: calc(100% - 2px);   /* un paio di px più in alto */
+    right: 0;
+    left: auto;
+    min-width: 70px;
+    width: auto;
+    transform: none;
+    z-index: 3000;
+  }
+
+  .lang-menu li {
+    padding: 6px 10px;
+    font-size: 11px;
+  }
+
+  .lang-btn {
+    padding: 4px 10px;
+    font-size: 10px;
+  }
+}
+
+/* ====================================
+   TOPBAR: logo → slogan → icone
    (SOLO MOBILE <= 600px)
 ==================================== */
 @media (max-width: 600px) {
