@@ -304,3 +304,33 @@ body {
     letter-spacing: 0.1em;
   }
 }
+
+/* ==========================
+   MOBILE/TABLET: FIX MENU LINGUE
+============================== */
+@media (max-width: 900px) {
+
+  .lang-switcher {
+    position: relative;   /* riferimento per il menu */
+  }
+
+  .lang-menu {
+    top: 100%;
+    right: 0;             /* attacca il menu al bordo destro del bottone */
+    left: auto;           /* ignoriamo il left:0 di base */
+    min-width: 70px;
+    width: auto;          /* niente larghezza forzata */
+    transform: translateY(2px);
+    z-index: 2000;        /* sopra a video/slider */
+  }
+
+  .lang-menu li {
+    padding: 6px 10px;
+    font-size: 11px;
+  }
+
+  .lang-btn {
+    padding: 4px 10px;
+    font-size: 10px;
+  }
+}
