@@ -8,10 +8,13 @@ html, body {
   overflow-x: hidden;
 }
 
-/* top padding so the fixed topbar doesn't cover hero */
-body {
-  padding-top: 80px;
+/* La topbar è fixed → aggiungiamo spazio solo in MOBILE */
+@media (max-width: 600px) {
+  body {
+    padding-top: 80px;  /* evita che la topbar copra il video */
+  }
 }
+
 
 /* ==========================
    HERO SLIDER MOBILE
@@ -339,5 +342,140 @@ body {
   .lang-btn {
     padding: 4px 10px;
     font-size: 10px;
+  }
+}
+
+/* ====================================
+   TOPBAR MOBILE – allineo logo + slogan
+==================================== */
+@media (max-width: 600px) {
+
+  .topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    gap: 8px;
+    padding: 6px 10px;
+  }
+
+  .topbar-left {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .topbar-center {
+    flex: 1 1 auto;
+    text-align: left;          /* lo slogan parte vicino al nome */
+  }
+
+  .topbar-right {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .logo-mark img {
+    height: 26px;              /* logo più compatto */
+    width: auto;
+    display: block;
+  }
+
+  .tagline {
+    font-size: 7px;
+    letter-spacing: 0.14em;
+    white-space: nowrap;       /* tutta la frase su una riga */
+    max-width: 55vw;           /* non invade troppo i social */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.2;
+  }
+}
+
+/* ===== MENU SOCIAL (base) ===== */
+
+.social-switcher {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* bottone "☰" nascosto di default, lo mostriamo solo su mobile */
+.social-toggle {
+  display: none;
+  border: 1px solid #fff;
+  background: transparent;
+  color: #fff;
+  border-radius: 999px;
+  padding: 4px 8px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* dropdown social */
+.social-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: #000;
+  border: 1px solid #555;
+  display: none;
+  min-width: 110px;
+  z-index: 3000;
+}
+
+.social-menu li {
+  padding: 8px 12px;
+  font-size: 12px;
+}
+
+.social-menu li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.social-menu li:hover {
+  background: #111;
+}
+
+/* stato aperto */
+.social-switcher.open .social-menu {
+  display: block;
+}
+
+/* ===== VERSIONI RESPONSIVE ===== */
+
+/* Desktop/tablet: nascondo bottone social, uso le icone */
+@media (min-width: 601px) {
+  .social-toggle {
+    display: none;
+  }
+  .social-icons {
+    display: flex;
+    gap: 10px;
+  }
+}
+
+/* Mobile: icone nascoste, mostro il menu compatto */
+@media (max-width: 600px) {
+  .social-icons {
+    display: none;
+  }
+
+  .social-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    font-size: 16px;
   }
 }
