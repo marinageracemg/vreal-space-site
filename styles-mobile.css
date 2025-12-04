@@ -540,3 +540,22 @@ html, body {
   }
 }
 
+/* ==========================
+   DISATTIVA MENU SOCIAL E RIPRISTINA ICONE
+   (desktop e mobile come prima)
+============================== */
+
+/* nascondi del tutto il bottone/menu social */
+.social-toggle,
+.social-menu {
+  display: none !important;
+}
+
+/* su mobile mostra le icone social normali */
+@media (max-width: 600px) {
+  .social-icons {
+    display: flex !important;
+    gap: 8px;
+  }
+}
+
