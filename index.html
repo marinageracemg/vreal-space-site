@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VREAL-SPACE</title>
   <link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="styles-mobile.css" media="(max-width: 600px)" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
@@ -127,7 +128,6 @@
 
     </section>
 
-
     <!-- ==========================
          SEZIONE CHI SIAMO / ABOUT US
     ============================== -->
@@ -169,25 +169,17 @@
       </div>
     </section>
 
-
     <!-- ==========================
          VIDEO DI PRESENTAZIONE
     ============================== -->
     <section id="video-section" class="video-section">
-  <div class="video-wrapper">
-    <iframe
-      class="video-embed"
-      src="https://www.youtube.com/embed/juyFrwlPQk0?autoplay=1&mute=1&controls=0&playsinline=1&loop=1&modestbranding=1&rel=0&showinfo=0&playlist=juyFrwlPQk0"
-      title="VREAL-SPACE video"
-      frameborder="0"
-      allow="autoplay; encrypted-media; picture-in-picture"
-      allowfullscreen>
-    </iframe>
-  </div>
-</section>
-
-
-
+      <div class="video-wrapper">
+        <video id="about-video" autoplay muted loop playsinline>
+          <source src="Video_Tour.mp4" type="video/mp4">
+          Il tuo browser non supporta i video HTML5.
+        </video>
+      </div>
+    </section>
 
     <!-- ==========================
          SEZIONE LAVORI / PORTFOLIO
@@ -228,7 +220,6 @@
         </button>
       </div>
     </section>
-
 
     <!-- ==========================
          SEZIONE CLIENTI / COLLABORAZIONI
@@ -286,16 +277,17 @@
         <figure class="event-logo"><img src="evento2.png" alt="evento2"></figure>
       </div>
 
-
     </div>
 
   </div>
 </section>
 
-<!-- ==========================
-     SEZIONE CONTATTI
-============================== -->
-<section id="contact-section" class="contact-section">
+        </section>
+
+            <!-- ==========================
+         SEZIONE CONTATTI
+    ============================== -->
+    <section id="contact-section" class="contact-section">
       <div class="contact-inner">
 
         <!-- Testo a sinistra -->
@@ -346,7 +338,6 @@
 
       </div>
     </section>
-
 
         <!-- ==========================
          SEZIONE CONTATTI & SOCIAL
@@ -418,9 +409,7 @@
       </div>
     </section>
 
-
   </main>
-
 
 
   <!-- ==========================
@@ -643,7 +632,6 @@
       social_linkedin_title: "LinkedIn",
       social_instagram_title: "Instagram",
 
-
     },
 
     RU: {
@@ -698,7 +686,6 @@
       social_linkedin_title: "LinkedIn",
       social_instagram_title: "Instagram",
 
-
     }
   };
   </script>
@@ -723,7 +710,64 @@
   });
   </script>
 
+  <!-- Video autoplay/suono -->
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const video = document.getElementById("about-video");
+    if (!video) return;
 
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        video.muted = true;
+        video.play().catch(() => {});
+      });
+    }
+  });
+  </script>
+
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const video = document.getElementById("about-video");
+    const soundBtn = document.getElementById("video-sound-toggle");
+    if (!video) return;
+
+    video.muted = true;
+
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        video.muted = true;
+        video.play().catch(() => {});
+      });
+    }
+
+    const updateIcon = () => {
+      if (!soundBtn) return;
+      soundBtn.textContent = video.muted ? "🔇" : "🔊";
+    };
+    updateIcon();
+
+    const toggleSound = () => {
+      video.muted = !video.muted;
+      if (video.paused) {
+        video.play().catch(() => {});
+      }
+      updateIcon();
+    };
+
+    if (soundBtn) {
+      soundBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        toggleSound();
+      });
+    }
+
+    video.addEventListener("click", () => {
+      toggleSound();
+    });
+  });
+  </script>
 
     <!-- Slider lavori (portfolio) -->
   <script>
@@ -748,7 +792,6 @@
   });
   </script>
 
-
   <script>
 document.addEventListener("DOMContentLoaded", () => {
   const track = document.querySelector(".clients-logos");
@@ -770,7 +813,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 </script>
-
 
   <!-- Freccia scroll down -->
   <script>
@@ -845,7 +887,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 </script>
-
 
 </body>
 </html>
