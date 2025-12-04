@@ -334,3 +334,31 @@ body {
     font-size: 10px;
   }
 }
+
+/* ==========================
+   FIX MENU LINGUE TAGLIATO
+============================== */
+@media (max-width: 900px) {
+
+  /* la topbar non deve tagliare quello che esce fuori */
+  .topbar,
+  .lang-switcher {
+    overflow: visible !important;
+  }
+
+  /* menu subito sotto il bottone, ma leggermente rialzato */
+  .lang-menu {
+    position: absolute;
+    top: calc(100% - 2px);   /* un paio di px più in alto */
+    right: 0;
+    left: auto;
+    transform: none;         /* niente translateY che può farlo uscire */
+    z-index: 3000;           /* sopra a video e slider */
+    min-width: 70px;
+  }
+
+  .lang-menu li {
+    padding: 6px 10px;
+    font-size: 11px;
+  }
+}
