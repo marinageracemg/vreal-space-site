@@ -559,3 +559,16 @@ html, body {
   }
 }
 
+/* ==========================
+   HERO: TESTO PIÙ STRETTO SU MOBILE
+============================== */
+@media (max-width: 600px) {
+  .hero-content h1 {
+    max-width: 86%;      /* stringe il testo così non tocca le frecce */
+    margin: 0 auto;      /* centra l'h1 all'interno */
+    font-size: 17px;     /* leggermente più piccolo */
+    letter-spacing: 0.10em;  /* un filo meno largo */
+  }
+}
+
+
