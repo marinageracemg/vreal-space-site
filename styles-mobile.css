@@ -401,3 +401,37 @@ body {
     letter-spacing: 0.1em;
   }
 }
+
+/* ==========================
+   MOBILE: ORDINE LOGO → SLOGAN → ICONE
+   (override finale)
+============================== */
+@media (max-width: 600px) {
+
+  .topbar {
+    justify-content: flex-start;   /* niente space-between */
+    gap: 8px;
+  }
+
+  .topbar-left {
+    flex: 0 0 auto;
+    margin-right: 6px;             /* piccolo spazio dopo il logo */
+  }
+
+  .topbar-center {
+    flex: 1 1 auto;                /* occupa lo spazio centrale */
+    text-align: left;              /* lo slogan parte vicino al logo */
+  }
+
+  .topbar-right {
+    flex: 0 0 auto;
+    margin-left: 6px;              /* spazio tra slogan e icone/lang */
+  }
+
+  /* opzionale: limitiamo un po' la larghezza dello slogan
+     così non “avvolge” le icone */
+  .tagline {
+    display: block;
+    max-width: 70vw;
+  }
+}
