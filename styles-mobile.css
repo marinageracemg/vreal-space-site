@@ -314,14 +314,21 @@ body {
     position: relative;   /* riferimento per il menu */
   }
 
+  /* la topbar non deve tagliare quello che esce fuori */
+  .topbar,
+  .lang-switcher {
+    overflow: visible !important;
+  }
+
   .lang-menu {
-    top: 100%;
-    right: 0;             /* attacca il menu al bordo destro del bottone */
-    left: auto;           /* ignoriamo il left:0 di base */
+    position: absolute;
+    top: calc(100% - 2px);   /* un paio di px più in alto */
+    right: 0;
+    left: auto;
     min-width: 70px;
-    width: auto;          /* niente larghezza forzata */
-    transform: translateY(2px);
-    z-index: 2000;        /* sopra a video/slider */
+    width: auto;
+    transform: none;
+    z-index: 3000;
   }
 
   .lang-menu li {
@@ -332,33 +339,5 @@ body {
   .lang-btn {
     padding: 4px 10px;
     font-size: 10px;
-  }
-}
-
-/* ==========================
-   FIX MENU LINGUE TAGLIATO
-============================== */
-@media (max-width: 900px) {
-
-  /* la topbar non deve tagliare quello che esce fuori */
-  .topbar,
-  .lang-switcher {
-    overflow: visible !important;
-  }
-
-  /* menu subito sotto il bottone, ma leggermente rialzato */
-  .lang-menu {
-    position: absolute;
-    top: calc(100% - 2px);   /* un paio di px più in alto */
-    right: 0;
-    left: auto;
-    transform: none;         /* niente translateY che può farlo uscire */
-    z-index: 3000;           /* sopra a video e slider */
-    min-width: 70px;
-  }
-
-  .lang-menu li {
-    padding: 6px 10px;
-    font-size: 11px;
   }
 }
