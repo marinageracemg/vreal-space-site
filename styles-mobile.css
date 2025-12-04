@@ -1,26 +1,128 @@
 /* ==========================
-   GLOBAL MOBILE FIXES
-   (max-width: 600px)
+   GLOBAL MOBILE (max-width: 600px)
 ============================== */
 
-html, body {
-  max-width: 100%;
-  overflow-x: hidden;
-}
-
-/* La topbar è fixed → aggiungiamo spazio solo in MOBILE */
 @media (max-width: 600px) {
-  body {
-    padding-top: 80px;  /* evita che la topbar copra il video */
+
+  html, body {
+    max-width: 100%;
+    overflow-x: hidden;
   }
-}
 
+  /* spazio per la topbar fixed */
+  body {
+    padding-top: 80px;
+  }
 
-/* ==========================
-   HERO SLIDER MOBILE
-============================== */
+  /* ==========================
+     TOPBAR MOBILE
+  ============================== */
 
-@media (max-width: 600px) {
+  .topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    gap: 8px;
+    padding: 6px 10px;
+  }
+
+  .topbar-left {
+    order: 0 !important;
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .topbar-center {
+    order: 1 !important;
+    flex: 1 1 auto;
+    width: auto !important;
+    margin-top: 0 !important;
+    padding: 0 8px;
+    text-align: center;
+  }
+
+  .topbar-right {
+    order: 2 !important;
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .logo-mark img {
+    height: 32px;
+    width: auto;
+    display: block;
+  }
+
+  .tagline {
+    font-size: 8px;
+    letter-spacing: 0.14em;
+    white-space: normal !important;  /* può andare a capo */
+    word-break: break-word;
+    line-height: 1.3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .social-btn {
+    width: 24px;
+    height: 24px;
+    border-width: 1px;
+  }
+
+  .social-btn img {
+    width: 70%;
+    height: 70%;
+    object-fit: contain;
+  }
+
+  .lang-btn {
+    padding: 4px 8px;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+  }
+
+  /* ==========================
+     MENU LINGUE MOBILE
+  ============================== */
+
+  .lang-switcher {
+    position: relative;
+  }
+
+  .topbar,
+  .lang-switcher {
+    overflow: visible !important;
+  }
+
+  .lang-menu {
+    position: absolute;
+    top: calc(100% - 2px);
+    right: 0;
+    left: auto;
+    min-width: 70px;
+    width: auto;
+    transform: none;
+    z-index: 3000;
+  }
+
+  .lang-menu li {
+    padding: 6px 10px;
+    font-size: 11px;
+  }
+
+  .lang-btn {
+    padding: 4px 10px;
+    font-size: 10px;
+  }
+
+  /* ==========================
+     HERO SLIDER MOBILE
+  ============================== */
 
   .hero-slider {
     position: relative;
@@ -68,7 +170,10 @@ html, body {
     bottom: 50px;
   }
 
-  /* INFO SECTION (CHI SIAMO) */
+  /* ==========================
+     INFO SECTION (CHI SIAMO)
+  ============================== */
+
   .info-section {
     padding: 40px 6% 20px;
   }
@@ -91,7 +196,10 @@ html, body {
     font-size: 13px;
   }
 
-  /* VIDEO SECTION */
+  /* ==========================
+     VIDEO SECTION
+  ============================== */
+
   .video-section {
     padding: 20px 0 40px;
   }
@@ -106,7 +214,10 @@ html, body {
     border-radius: 16px;
   }
 
-  /* WORKS / PORTFOLIO */
+  /* ==========================
+     WORKS / PORTFOLIO
+  ============================== */
+
   .works-section {
     padding: 40px 0 40px;
   }
@@ -135,7 +246,10 @@ html, body {
     font-size: 18px;
   }
 
-  /* CLIENTS */
+  /* ==========================
+     CLIENTS
+  ============================== */
+
   .clients-section {
     padding: 35px 6% 40px;
   }
@@ -153,7 +267,10 @@ html, body {
     gap: 24px;
   }
 
-  /* EVENTS */
+  /* ==========================
+     EVENTS
+  ============================== */
+
   .events-section {
     padding: 35px 6% 40px;
   }
@@ -170,7 +287,10 @@ html, body {
     gap: 24px;
   }
 
-  /* CONTACT FORM */
+  /* ==========================
+     CONTACT FORM
+  ============================== */
+
   .contact-section {
     padding: 40px 6% 40px;
   }
@@ -194,7 +314,10 @@ html, body {
     padding: 20px 16px;
   }
 
-  /* SOCIAL / CONTACTS */
+  /* ==========================
+     SOCIAL / CONTACTS
+  ============================== */
+
   .social-section {
     padding: 40px 6% 40px;
   }
@@ -217,7 +340,23 @@ html, body {
     text-align: left;
   }
 
-  /* FOOTER */
+  /* IMPORTANTISSIMO:
+     su mobile teniamo VISIBILI le icone social,
+     perché in HTML non c'è il bottone .social-toggle
+  */
+  .social-icons {
+    display: flex;
+    gap: 10px;
+  }
+
+  .social-toggle {
+    display: none;
+  }
+
+  /* ==========================
+     FOOTER
+  ============================== */
+
   .site-footer {
     white-space: normal;
     line-height: 1.5;
@@ -228,319 +367,5 @@ html, body {
   .site-footer span {
     display: inline-block;
     padding: 0 4px;
-  }
-}
-
-/* ====================================
-   TOPBAR: logo → slogan → icone
-   (vale per TUTTO <= 900px)
-==================================== */
-@media (max-width: 900px) {
-
-  .topbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: nowrap;              /* tutto su una sola riga */
-    gap: 8px;
-    padding: 6px 10px;
-  }
-
-  /* ordine corretto dei 3 blocchi */
-  .topbar-left {
-    order: 0 !important;            /* LOGO per primo */
-    flex: 0 0 auto;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-  }
-
-  .topbar-center {
-    order: 1 !important;            /* SLOGAN al centro */
-    flex: 1 1 auto;
-    width: auto !important;
-    margin-top: 0 !important;
-    padding: 0 8px;
-    text-align: center;
-  }
-
-  .topbar-right {
-    order: 2 !important;            /* SOCIAL + LINGUE a destra */
-    flex: 0 0 auto;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  /* dimensioni ridotte per farci stare tutto */
-  .logo-mark img {
-    height: 32px;
-    width: auto;
-    display: block;
-  }
-
-  .tagline {
-    font-size: 8px;
-    letter-spacing: 0.14em;
-    white-space: normal !important; /* può andare a capo */
-    word-break: break-word;
-    line-height: 1.3;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .social-btn {
-    width: 24px;
-    height: 24px;
-    border-width: 1px;
-  }
-
-  .social-btn img {
-    width: 70%;
-    height: 70%;
-    object-fit: contain;
-  }
-
-  .lang-btn {
-    padding: 4px 8px;
-    font-size: 9px;
-    letter-spacing: 0.1em;
-  }
-}
-
-/* ==========================
-   MOBILE/TABLET: FIX MENU LINGUE
-============================== */
-@media (max-width: 900px) {
-
-  .lang-switcher {
-    position: relative;   /* riferimento per il menu */
-  }
-
-  /* la topbar non deve tagliare quello che esce fuori */
-  .topbar,
-  .lang-switcher {
-    overflow: visible !important;
-  }
-
-  .lang-menu {
-    position: absolute;
-    top: calc(100% - 2px);   /* un paio di px più in alto */
-    right: 0;
-    left: auto;
-    min-width: 70px;
-    width: auto;
-    transform: none;
-    z-index: 3000;
-  }
-
-  .lang-menu li {
-    padding: 6px 10px;
-    font-size: 11px;
-  }
-
-  .lang-btn {
-    padding: 4px 10px;
-    font-size: 10px;
-  }
-}
-
-/* ====================================
-   TOPBAR: logo → slogan → icone
-   (SOLO MOBILE <= 600px)
-==================================== */
-@media (max-width: 600px) {
-
-  .topbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: nowrap;              /* tutto su una sola riga */
-    gap: 8px;
-    padding: 6px 10px;
-  }
-
-  /* ordine corretto dei 3 blocchi */
-  .topbar-left {
-    order: 0 !important;            /* LOGO per primo */
-    flex: 0 0 auto;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-  }
-
-  .topbar-center {
-    order: 1 !important;            /* SLOGAN al centro */
-    flex: 1 1 auto;
-    width: auto !important;
-    margin-top: 0 !important;
-    padding: 0 8px;
-    text-align: center;
-  }
-
-  .topbar-right {
-    order: 2 !important;            /* SOCIAL + LINGUE a destra */
-    flex: 0 0 auto;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  /* dimensioni ridotte per farci stare tutto */
-  .logo-mark img {
-    height: 32px;
-    width: auto;
-    display: block;
-  }
-
-  .tagline {
-    font-size: 8px;
-    letter-spacing: 0.14em;
-    white-space: normal !important; /* può andare a capo */
-    word-break: break-word;
-    line-height: 1.3;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .social-btn {
-    width: 24px;
-    height: 24px;
-    border-width: 1px;
-  }
-
-  .social-btn img {
-    width: 70%;
-    height: 70%;
-    object-fit: contain;
-  }
-
-  .lang-btn {
-    padding: 4px 8px;
-    font-size: 9px;
-    letter-spacing: 0.1em;
-  }
-}
-
-/* ==========================
-   MOBILE: FIX MENU LINGUE
-============================== */
-@media (max-width: 600px) {
-
-  .lang-switcher {
-    position: relative;   /* riferimento per il menu */
-  }
-
-  /* la topbar non deve tagliare quello che esce fuori */
-  .topbar,
-  .lang-switcher {
-    overflow: visible !important;
-  }
-
-  .lang-menu {
-    position: absolute;
-    top: calc(100% - 2px);   /* un paio di px più in alto */
-    right: 0;
-    left: auto;
-    min-width: 70px;
-    width: auto;
-    transform: none;
-    z-index: 3000;
-  }
-
-  .lang-menu li {
-    padding: 6px 10px;
-    font-size: 11px;
-  }
-
-  .lang-btn {
-    padding: 4px 10px;
-    font-size: 10px;
-  }
-}
-
-
-/* ===== MENU SOCIAL (base) ===== */
-
-.social-switcher {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-/* bottone "☰" nascosto di default, lo mostriamo solo su mobile */
-.social-toggle {
-  display: none;
-  border: 1px solid #fff;
-  background: transparent;
-  color: #fff;
-  border-radius: 999px;
-  padding: 4px 8px;
-  font-size: 14px;
-  cursor: pointer;
-}
-
-/* dropdown social */
-.social-menu {
-  position: absolute;
-  top: 100%;
-  right: 0;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  background: #000;
-  border: 1px solid #555;
-  display: none;
-  min-width: 110px;
-  z-index: 3000;
-}
-
-.social-menu li {
-  padding: 8px 12px;
-  font-size: 12px;
-}
-
-.social-menu li a {
-  color: #fff;
-  text-decoration: none;
-}
-
-.social-menu li:hover {
-  background: #111;
-}
-
-/* stato aperto */
-.social-switcher.open .social-menu {
-  display: block;
-}
-
-/* ===== VERSIONI RESPONSIVE ===== */
-
-/* Desktop/tablet: nascondo bottone social, uso le icone */
-@media (min-width: 601px) {
-  .social-toggle {
-    display: none;
-  }
-  .social-icons {
-    display: flex;
-    gap: 10px;
-  }
-}
-
-/* Mobile: icone nascoste, mostro il menu compatto */
-@media (max-width: 600px) {
-  .social-icons {
-    display: none;
-  }
-
-  .social-toggle {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 32px;
-    height: 32px;
-    border-radius: 999px;
-    font-size: 16px;
   }
 }
