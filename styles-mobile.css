@@ -564,11 +564,10 @@ html, body {
 ============================== */
 @media (max-width: 600px) {
   .hero-content h1 {
-    max-width: 50%;      /* stringe il testo così non tocca le frecce */
-    margin: 0 auto;      /* centra l'h1 all'interno */
-    font-size: 5px;     /* leggermente più piccolo */
-    letter-spacing: 0.10em;  /* un filo meno largo */
+    max-width: 80%;      /* testo più stretto, non tocca le frecce */
+    margin: 0 auto;      /* centrato */
+    font-size: 16px;     /* leggibile su mobile */
+    letter-spacing: 0.11em;
   }
 }
-
 
