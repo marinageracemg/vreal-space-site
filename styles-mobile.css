@@ -571,3 +571,22 @@ html, body {
   }
 }
 
+/* ==========================
+   MOBILE: OVERLAY SU TAP
+============================== */
+
+@media (max-width: 600px) {
+
+  .work-overlay {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .work-item.active .work-overlay {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+
+
