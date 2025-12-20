@@ -554,3 +554,46 @@ html {
     font-size: 18px;
   }
 }
+
+/* ==========================
+   MOBILE: SCROLLBAR OVERLAY (solo mobile)
+   - mostra una "barra" laterale per scorrere il testo
+============================== */
+@media (max-width: 600px) {
+
+  /* l’overlay deve poter scrollare */
+  .work-overlay{
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch;
+
+    /* evita che il testo vada sotto i bordi */
+    padding-right: 18px !important; /* spazio per la scrollbar */
+  }
+
+  /* FIREFOX */
+  .work-overlay{
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0,0,0,0.9) rgba(255,255,255,0.08);
+  }
+
+  /* CHROME / EDGE / ANDROID */
+  .work-overlay::-webkit-scrollbar{
+    width: 8px;            /* “barra” laterale */
+  }
+
+  .work-overlay::-webkit-scrollbar-track{
+    background: rgba(255,255,255,0.08);
+    border-radius: 999px;
+  }
+
+  .work-overlay::-webkit-scrollbar-thumb{
+    background: rgba(0,0,0,0.9);   /* la barra nera */
+    border-radius: 999px;
+    border: 2px solid rgba(255,255,255,0.08); /* stacco dal track */
+  }
+
+  .work-overlay::-webkit-scrollbar-thumb:hover{
+    background: rgba(0,0,0,1);
+  }
+}
