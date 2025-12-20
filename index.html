@@ -4,12 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VREAL-SPACE</title>
+
   <link rel="stylesheet" href="styles.css" />
-<link rel="stylesheet" href="styles-mobile.css" media="(max-width: 600px)" />
+  <link rel="stylesheet" href="styles-mobile.css" media="(max-width: 600px)" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
+
 <body>
   <header class="topbar">
     <!-- LOGO SINISTRA -->
@@ -45,7 +48,7 @@
       </div>
 
       <div class="lang-switcher">
-        <button class="lang-btn">
+        <button class="lang-btn" type="button">
           <span id="current-lang">IT</span>
           <span class="lang-arrow">˅</span>
         </button>
@@ -111,20 +114,20 @@
       </div>
 
       <!-- FRECCE -->
-      <button class="hero-arrow hero-prev">&#10094;</button>
-      <button class="hero-arrow hero-next">&#10095;</button>
+      <button class="hero-arrow hero-prev" type="button" aria-label="Slide precedente">&#10094;</button>
+      <button class="hero-arrow hero-next" type="button" aria-label="Slide successiva">&#10095;</button>
 
       <!-- PALLINI -->
       <div class="hero-dots">
-        <button class="hero-dot active" data-slide="0"></button>
-        <button class="hero-dot" data-slide="1"></button>
-        <button class="hero-dot" data-slide="2"></button>
-        <button class="hero-dot" data-slide="3"></button>
-        <button class="hero-dot" data-slide="4"></button>
+        <button class="hero-dot active" type="button" data-slide="0" aria-label="Slide 1"></button>
+        <button class="hero-dot" type="button" data-slide="1" aria-label="Slide 2"></button>
+        <button class="hero-dot" type="button" data-slide="2" aria-label="Slide 3"></button>
+        <button class="hero-dot" type="button" data-slide="3" aria-label="Slide 4"></button>
+        <button class="hero-dot" type="button" data-slide="4" aria-label="Slide 5"></button>
       </div>
 
       <!-- Freccia scroll down principale -->
-      <div class="scroll-down" id="scroll-down-btn"></div>
+      <div class="scroll-down" id="scroll-down-btn" aria-label="Scorri giù"></div>
 
     </section>
 
@@ -134,7 +137,6 @@
     <section id="info-section" class="info-section">
       <div class="info-grid">
 
-        <!-- Card 1 – Chi siamo -->
         <div class="info-card">
           <h3 data-i18n="about_title">Chi siamo</h3>
           <ul class="info-list">
@@ -144,7 +146,6 @@
           </ul>
         </div>
 
-        <!-- Card 2 – Cosa facciamo -->
         <div class="info-card">
           <h3 data-i18n="services_title">Cosa facciamo</h3>
           <ul class="info-list">
@@ -155,7 +156,6 @@
           </ul>
         </div>
 
-        <!-- Card 3 – Con chi collaboriamo -->
         <div class="info-card">
           <h3 data-i18n="partners_title">Con chi collaboriamo</h3>
           <ul class="info-list">
@@ -178,6 +178,11 @@
           <source src="Video_Tour.mp4" type="video/mp4">
           Il tuo browser non supporta i video HTML5.
         </video>
+
+        <!-- Bottone audio (prima mancava ma il JS lo cercava) -->
+        <button id="video-sound-toggle" class="video-sound-toggle" type="button" aria-label="Audio video">
+          🔇
+        </button>
       </div>
     </section>
 
@@ -190,9 +195,7 @@
       </div>
 
       <div class="works-slider">
-        <button class="works-arrow works-prev" aria-label="Progetti precedenti">
-          &#10094;
-        </button>
+        <button class="works-arrow works-prev" type="button" aria-label="Progetti precedenti">&#10094;</button>
 
         <div class="works-track">
           <div class="works-slide">
@@ -245,30 +248,30 @@
             <figure class="work-item">
               <img src="work13.jpg" alt="LIVING ROOM INTERIOR - work13">
               <div class="work-overlay">
-                <h3>LIVING ROOM INTERIOR</h3>
+                <h3>Living Room Interior</h3>
                 <p><strong>Project:</strong> Residential apartment renovation in Milan</p>
                 <p><strong>Status:</strong> Phase 1 completed (Dec 2025)</p>
                 <p class="work-desc">
                   <strong>Project description:</strong> This project involves the renovation of a 48 m² apartment in Milan, developed in collaboration with Tobinterior. Particular attention was given to lighting design and material selection, with a strong focus on texture quality and the accurate rendering of light and shadow effects. These elements were carefully developed to achieve a high level of realism and enhance the overall visual perception of the space.
+                </p>
               </div>
             </figure>
 
             <!-- WORK 13a -->
             <figure class="work-item">
-              <img src="work13a.png" alt="BATHROOM INTERIOR VIEW - work13">
+              <img src="work13a.png" alt="BATHROOM INTERIOR VIEW - work13a">
               <div class="work-overlay">
-                <h3>BATHROOM INTERIOR VIEW</h3>
+                <h3>Bathroom Interior View</h3>
                 <p><strong>Project:</strong> Residential apartment renovation in Milan</p>
                 <p><strong>Status:</strong> Phase 1 completed (Dec 2025)</p>
-                <p class="work-desc">
-                  
+              </div>
             </figure>
 
             <!-- WORK 2 -->
             <figure class="work-item">
               <img src="work2.jpg" alt="A PRIVATE ROOM OF A BEAUTY SALON - work2">
               <div class="work-overlay">
-                <h3>A PRIVATE ROOM OF A LUXURIOUS BEAUTY SALON</h3>
+                <h3>A Private Room of a Luxurious Beauty Salon</h3>
                 <p><strong>Project:</strong> A private room of a luxurious beauty salon</p>
                 <p><strong>Status:</strong> Completed (Jan. 2025).</p>
                 <p class="work-desc">
@@ -279,10 +282,10 @@
 
             <!-- WORK 2a -->
             <figure class="work-item">
-              <img src="work2a.png" alt="EXHIBITION STAND">
+              <img src="work2a.png" alt="EXHIBITION STAND - work2a">
               <div class="work-overlay">
-                
-                <p><strong>Project:</strong> EXHIBITION STAND</p>
+                <h3>Exhibition Stand</h3>
+                <p><strong>Project:</strong> Exhibition Stand</p>
                 <p><strong>Status:</strong> Completed (Dec 16, 2025)</p>
                 <p class="work-desc">
                   <strong>Project description:</strong> Design of an 8.0 × 4.5 m exhibition stand featuring a tasting area, product display zones, an information point, an open workspace, and an enclosed service area. The stand includes rotating glass display cubes for product presentation. The 3D modeling phase was completed in only three days and delivered with minimal delay, meeting the client’s expectations.
@@ -292,14 +295,11 @@
 
             <!-- WORK 2b -->
             <figure class="work-item">
-              <img src="work2b.png" alt="EXHIBITION STAND">
+              <img src="work2b.png" alt="EXHIBITION STAND - work2b">
               <div class="work-overlay">
-                
-                <p><strong>Project:</strong> EXHIBITION STAND</p>
+                <h3>Exhibition Stand</h3>
+                <p><strong>Project:</strong> Exhibition Stand</p>
                 <p><strong>Status:</strong> Completed (Dec 16, 2025)</p>
-                <p class="work-desc">
-                
-                </p>
               </div>
             </figure>
 
@@ -307,7 +307,7 @@
             <figure class="work-item">
               <img src="work3.jpg" alt="BEDROOM INTERIOR - work3">
               <div class="work-overlay">
-                <h3>BEDROOM INTERIOR</h3>                
+                <h3>Bedroom Interior</h3>
                 <p><strong>Status:</strong> Completed (August 2024)</p>
                 <p class="work-desc">
                   <strong>Project description:</strong> This project presents a master bedroom interior inspired by a client-selected reference, featuring a warm minimalist aesthetic with soft indirect lighting, neutral tones, and integrated furnishings to create a serene and elegant space.
@@ -319,15 +319,10 @@
             <figure class="work-item">
               <img src="work4.jpg" alt="EXHIBITION STAND - work4">
               <div class="work-overlay">
-                <h3>EXHIBITION STAND</h3>                
-                <p><strong>Status:</strong> Completed, (June 5, 2024).</p>
+                <h3>Exhibition Stand</h3>
+                <p><strong>Status:</strong> Completed (June 5, 2024).</p>
                 <p class="work-desc">
-                  <strong>Project description:</strong> Design of a 200 m² exhibition stand
-with display and storage areas.
-Developed through layout,
-3D model, structure, and rendering
-phases, with refined choices in
-materials, lighting, and LED signage.
+                  <strong>Project description:</strong> Design of a 200 m² exhibition stand with display and storage areas. Developed through layout, 3D model, structure, and rendering phases, with refined choices in materials, lighting, and LED signage.
                 </p>
               </div>
             </figure>
@@ -336,18 +331,16 @@ materials, lighting, and LED signage.
             <figure class="work-item">
               <img src="work5.png" alt="EXHIBITION STAND - work5">
               <div class="work-overlay">
-                <h3>EXHIBITION STAND</h3>
-                               
-                </p>
+                <h3>Exhibition Stand</h3>
               </div>
             </figure>
-            
+
             <!-- WORK 6A -->
             <figure class="work-item">
-              <img src="work6a.jpg" alt="EVENT: SIC 2024 «SIC» - SALONE INDUSTRIA CASEARIA - work6a">
+              <img src="work6a.jpg" alt="EVENT: SIC 2024 - work6a">
               <div class="work-overlay">
-                <h3>EVENT: SIC 2024</h3>
-                <p><strong>«SIC»:</strong> - SALONE INDUSTRIA CASEARIA</p>               
+                <h3>Event: SIC 2024</h3>
+                <p><strong>«SIC»:</strong> Salone Industria Casearia</p>
                 <p class="work-desc">
                   <strong>Project description:</strong> The exhibition stand was completed within a short timeframe thanks to efficient coordination and close team collaboration, and was successfully delivered and presented at the Salone Industria Casearia trade fair in October 2024.
                 </p>
@@ -358,15 +351,10 @@ materials, lighting, and LED signage.
             <figure class="work-item">
               <img src="work7.jpg" alt="Open-plan living space - work7">
               <div class="work-overlay">
-                <h3>Open-plan living space</h3>                
+                <h3>Open-plan living space</h3>
                 <p><strong>Status:</strong> Completed (Oct. 2024).</p>
                 <p class="work-desc">
-                  <strong>Project description:</strong> This is a three-level office
-                  building with an enclosed outdoor area at the entrance. As requested,
-                  attention has been focused on the exterior and the third level, for
-                  which the external layout, lighting, and furnishings have been
-                  carefully designed. Together, these elements have contributed to the
-                  creation of harmonious and functional spaces.
+                  <strong>Project description:</strong> Open-plan living environment designed to balance comfort, lighting, and furnishings, with a focus on harmonious and functional spatial composition.
                 </p>
               </div>
             </figure>
@@ -375,9 +363,7 @@ materials, lighting, and LED signage.
             <figure class="work-item">
               <img src="work8.png" alt="EXHIBITION STAND - work8">
               <div class="work-overlay">
-                <h3>EXHIBITION STAND</h3>
-                
-                </p>
+                <h3>Exhibition Stand</h3>
               </div>
             </figure>
 
@@ -385,22 +371,20 @@ materials, lighting, and LED signage.
             <figure class="work-item">
               <img src="work9.png" alt="EXHIBITION STAND - work9">
               <div class="work-overlay">
-                <h3>EXHIBITION STAND</h3>
+                <h3>Exhibition Stand</h3>
                 <p><strong>Project:</strong> Exhibition stand for "La Golosa di Puglia"</p>
                 <p><strong>Status:</strong> Completed (March 2024)</p>
                 <p class="work-desc">
-                  <strong>Project description:</strong> Project description: Design of a 72 m² exhibition stand featuring cooking, dining, and reception areas with built-in and display refrigerators. Careful attention was given to materials, colors, lighting, and LED backlit signage to enhance visual appeal and functionality.
+                  <strong>Project description:</strong> Design of a 72 m² exhibition stand featuring cooking, dining, and reception areas with built-in and display refrigerators. Careful attention was given to materials, colors, lighting, and LED backlit signage to enhance visual appeal and functionality.
                 </p>
               </div>
             </figure>
 
             <!-- WORK 10 -->
             <figure class="work-item">
-              <img src="work10.jpg" alt="EXHIBITION STAND1 - work10">
+              <img src="work10.jpg" alt="EXHIBITION STAND FLOOR PLAN - work10">
               <div class="work-overlay">
-                <h3>Floor plan of the exhibition stand for "La Golosa di Puglia"</h3>
-                
-                </p>
+                <h3>Floor plan - "La Golosa di Puglia"</h3>
               </div>
             </figure>
 
@@ -408,15 +392,9 @@ materials, lighting, and LED signage.
             <figure class="work-item">
               <img src="work11.jpg" alt="CIBUS PARMA 2024 - work11">
               <div class="work-overlay">
-                <h3>CIBUS PARMA 2024</h3>               
-               
+                <h3>CIBUS PARMA 2024</h3>
                 <p class="work-desc">
-                  <strong>Project description:</strong> Successfully completed on schedule
-and showcased at CIBUS Event 2024
-in Parma. The project strengthened
-client trust, expanded the company’s
-portfolio, and demonstrated efficient,
-market-responsive delivery.
+                  <strong>Project description:</strong> Successfully completed on schedule and showcased at CIBUS Event 2024 in Parma. The project strengthened client trust, expanded the company’s portfolio, and demonstrated efficient, market-responsive delivery.
                 </p>
               </div>
             </figure>
@@ -425,74 +403,59 @@ market-responsive delivery.
             <figure class="work-item">
               <img src="work12.jpg" alt="DETACHED HOUSE - work12">
               <div class="work-overlay">
-                <h3>DETACHED HOUSE</h3>
+                <h3>Detached House</h3>
                 <p><strong>Project:</strong> Detached house in a modern residential area</p>
                 <p><strong>Status:</strong> Completed (2023)</p>
                 <p class="work-desc">
-                  <strong>Project description:</strong> Design of a modern, minimalist
-two-story detached house inspired
-by client-selected online references.
-The ground floor includes living,
-kitchen, guest bedroom, and utility
-spaces; the second floor has two
-bedrooms, a study, and two
-bathrooms, with a mix of cool
-and warm materials.
-2023
+                  <strong>Project description:</strong> Design of a modern, minimalist two-story detached house inspired by client-selected online references. The ground floor includes living, kitchen, guest bedroom, and utility spaces; the second floor has two bedrooms, a study, and two bathrooms, with a mix of cool and warm materials.
                 </p>
               </div>
             </figure>
 
             <!-- WORK 14 -->
             <figure class="work-item">
-              <img src="work14.jpg" alt="EXISTING APARTMENT RENOVATION - work14">
+              <img src="work14.jpg" alt="APARTMENT RENOVATION - work14">
               <div class="work-overlay">
-                <h3>APARTMENT RENOVATION</h3>
+                <h3>Apartment Renovation</h3>
                 <p><strong>Project:</strong> Space reconfiguration and change of use of a residential unit</p>
                 <p><strong>Status:</strong> Completed (2023)</p>
                 <p class="work-desc">
                   <strong>Project description:</strong> Renovation of a historic apartment into a modern clinical analysis laboratory. The project repurposes the existing high-ceilinged spaces to accommodate a reception and waiting area, two offices, a diagnostics laboratory, and a bathroom, serving a city of approximately 60,000 residents.
-
                 </p>
               </div>
             </figure>
 
-<!-- WORK 14_ -->
+            <!-- WORK 14_ -->
             <figure class="work-item">
               <img src="work14_.jpg" alt="PRE-INTERVENTION 3D MODEL - work14_">
               <div class="work-overlay">
-                <h3>PRE-INTERVENTION 3D MODEL</h3>
-                <p><strong>Project:</strong> 3D visualization of the existing apartment for pre-renovation spatial analysis.</p>
+                <h3>Pre-intervention 3D Model</h3>
+                <p><strong>Project:</strong> 3D visualization of the existing apartment for pre-renovation spatial analysis</p>
                 <p><strong>Status:</strong> Completed (2023)</p>
                 <p class="work-desc">
-                  <strong>Project description:</strong> A 3D model of a modern apartment created for a real estate listing to enhance spatial visualization. The model also served as a tool for analyzing the existing layout prior to renovation. The apartment includes an open-plan living and kitchen area, two bedrooms, and a guest bathroom.
-
+                  <strong>Project description:</strong> A 3D model of a modern apartment created for a real estate listing to enhance spatial visualization. The model also served as a tool for analyzing the existing layout prior to renovation.
                 </p>
               </div>
             </figure>
 
             <!-- WORK 14a -->
             <figure class="work-item">
-              <img src="work14a.jpg" alt="«LOWER SECONDARY SCHOOL» PROJECT - work14a">
+              <img src="work14a.jpg" alt="LOWER SECONDARY SCHOOL PROJECT - work14a">
               <div class="work-overlay">
-                <h3>«LOWER SECONDARY SCHOOL» PROJECT</h3>
-                
+                <h3>Lower Secondary School Project</h3>
                 <p><strong>Status:</strong> Completed (July 2022)</p>
                 <p class="work-desc">
                   <strong>Project description:</strong> The project focuses on creating a safe and flexible lower secondary school environment, designed in compliance with COVID-19 regulations. Spacious and adaptable classrooms with mobile partitions, generous common areas, and equipped outdoor spaces support interactive learning while ensuring student safety and spatial flexibility.
-
                 </p>
               </div>
             </figure>
 
             <!-- WORK 14b -->
             <figure class="work-item">
-              <img src="work14b.jpg" alt="«LOWER SECONDARY SCHOOL» PROJECT - work14a">
+              <img src="work14b.jpg" alt="LOWER SECONDARY SCHOOL PROJECT - work14b">
               <div class="work-overlay">
-                <h3>«LOWER SECONDARY SCHOOL» PROJECT</h3>
-                <p><strong></strong> West elevation</p>
-                
-                </p>
+                <h3>Lower Secondary School Project</h3>
+                <p><strong>View:</strong> West elevation</p>
               </div>
             </figure>
 
@@ -500,38 +463,27 @@ and warm materials.
             <figure class="work-item">
               <img src="work15.jpg" alt="EXISTING APARTMENT RENOVATION - work15">
               <div class="work-overlay">
-                <h3>APARTMENT RENOVATION</h3>
+                <h3>Apartment Renovation</h3>
                 <p><strong>Project:</strong> Reconfiguration of an existing apartment</p>
                 <p><strong>Status:</strong> Completed (2021)</p>
                 <p class="work-desc">
-                  <strong>Project description:</strong> Redesign of an existing apartment to
-create wider, more functional open
-spaces while retaining essential
-transitional areas. The layout
-includes a kitchen, living room with
-terrace, three bedrooms (one ensuite),
-a shared bathroom, and storage.
-Warm wooden flooring enhances
-comfort and user experience.
+                  <strong>Project description:</strong> Redesign of an existing apartment to create wider, more functional open spaces while retaining essential transitional areas. The layout includes a kitchen, living room with terrace, three bedrooms (one ensuite), a shared bathroom, and storage. Warm wooden flooring enhances comfort and user experience.
                 </p>
               </div>
             </figure>
 
-<!-- WORK 15a -->
+            <!-- WORK 15a -->
             <figure class="work-item">
-              <img src="work15a.jpg" alt="EXISTING APARTMENT RENOVATION - work15">
+              <img src="work15a.jpg" alt="EXISTING APARTMENT RENOVATION - work15a">
               <div class="work-overlay">
-                
-                </p>
+                <h3>Apartment Renovation</h3>
               </div>
             </figure>
 
           </div>
         </div>
 
-        <button class="works-arrow works-next" aria-label="Progetti successivi">
-          &#10095;
-        </button>
+        <button class="works-arrow works-next" type="button" aria-label="Progetti successivi">&#10095;</button>
       </div>
     </section>
 
@@ -547,80 +499,66 @@ comfort and user experience.
         </p>
 
         <div class="clients-slider">
+          <button class="clients-arrow clients-prev" type="button" aria-label="Loghi precedenti">&#10094;</button>
 
-  <button class="clients-arrow clients-prev">&#10094;</button>
+          <div class="clients-logos">
+            <figure class="client-logo"><img src="client1.png" alt=""></figure>
+            <figure class="client-logo"><img src="client2.png" alt=""></figure>
+            <figure class="client-logo"><img src="client2a.png" alt=""></figure>
+            <figure class="client-logo"><img src="client3.png" alt=""></figure>
+            <figure class="client-logo"><img src="client4.png" alt=""></figure>
+            <figure class="client-logo"><img src="client5.png" alt=""></figure>
+            <figure class="client-logo"><img src="client6.png" alt=""></figure>
+            <figure class="client-logo"><img src="client7.png" alt=""></figure>
+            <figure class="client-logo"><img src="client8.png" alt=""></figure>
+            <figure class="client-logo"><img src="client9.png" alt=""></figure>
+            <figure class="client-logo"><img src="client10.png" alt=""></figure>
+            <figure class="client-logo"><img src="client11.png" alt=""></figure>
+            <figure class="client-logo"><img src="client12.png" alt=""></figure>
+            <figure class="client-logo"><img src="client13.png" alt=""></figure>
+          </div>
 
-  <div class="clients-logos">
-    <!-- Loghi -->
-    <figure class="client-logo"><img src="client1.png" alt=""></figure>
-    <figure class="client-logo"><img src="client2.png" alt=""></figure>
-    <figure class="client-logo"><img src="client2a.png" alt=""></figure>
-    <figure class="client-logo"><img src="client3.png" alt=""></figure>
-    <figure class="client-logo"><img src="client4.png" alt=""></figure>
-    <figure class="client-logo"><img src="client5.png" alt=""></figure>
-    <figure class="client-logo"><img src="client6.png" alt=""></figure>
-    <figure class="client-logo"><img src="client7.png" alt=""></figure>
-    <figure class="client-logo"><img src="client8.png" alt=""></figure>
-    <figure class="client-logo"><img src="client9.png" alt=""></figure>
-    <figure class="client-logo"><img src="client10.png" alt=""></figure>
-    <figure class="client-logo"><img src="client11.png" alt=""></figure>
-    <figure class="client-logo"><img src="client12.png" alt=""></figure>    
-    <figure class="client-logo"><img src="client13.png" alt=""></figure>    
-  </div>
-
-  <button class="clients-arrow clients-next">&#10095;</button>
-
-</div>
-
+          <button class="clients-arrow clients-next" type="button" aria-label="Loghi successivi">&#10095;</button>
+        </div>
       </div>
     </section>
 
     <!-- ==========================
-     SEZIONE EVENTI
-============================== -->
-<section id="events-section" class="events-section">
-  <div class="events-inner">
+         SEZIONE EVENTI
+    ============================== -->
+    <section id="events-section" class="events-section">
+      <div class="events-inner">
+        <h2 data-i18n="events_title">Esposizioni ed eventi</h2>
 
-    <h2 data-i18n="events_title">Esposizioni ed eventi</h2>
+        <p class="events-subtitle" data-i18n="events_subtitle">
+          Alcuni eventi che hanno ospitato i nostri progetti.
+        </p>
 
-    <p class="events-subtitle" data-i18n="events_subtitle">
-      Alcuni eventi che hanno ospitato i nostri progetti.
-    </p>
-
-    <div class="events-slider">
-
-            <!-- LOGHI IN RIGA -->
-      <div class="events-logos">
-        <figure class="event-logo"><img src="evento1.png" alt="evento1"></figure>
-        <figure class="event-logo"><img src="evento2.png" alt="evento2"></figure>
+        <div class="events-slider">
+          <div class="events-logos">
+            <figure class="event-logo"><img src="evento1.png" alt="evento1"></figure>
+            <figure class="event-logo"><img src="evento2.png" alt="evento2"></figure>
+          </div>
+        </div>
       </div>
+    </section>
 
-    </div>
-
-  </div>
-</section>
-       
-            <!-- ==========================
+    <!-- ==========================
          SEZIONE CONTATTI
     ============================== -->
     <section id="contact-section" class="contact-section">
       <div class="contact-inner">
 
-        <!-- Testo a sinistra -->
         <div class="contact-text">
           <h2 data-i18n="contact_title">Contattaci</h2>
-          <p data-i18n="contact_subtitle">
-            
-          </p>
+          <p data-i18n="contact_subtitle"></p>
         </div>
 
-        <!-- Form a destra -->
         <div class="contact-form-wrapper">
           <form class="contact-form"
                 action="https://formsubmit.co/info.vrealspace@gmail.com"
                 method="POST">
 
-            <!-- Opzioni nascoste -->
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="_template" value="table">
             <input type="hidden" name="_subject" value="Nuova richiesta dal sito VREAL-SPACE">
@@ -655,7 +593,7 @@ comfort and user experience.
       </div>
     </section>
 
-        <!-- ==========================
+    <!-- ==========================
          SEZIONE CONTATTI & SOCIAL
     ============================== -->
     <section id="social-section" class="social-section">
@@ -668,8 +606,6 @@ comfort and user experience.
         </p>
 
         <div class="social-grid">
-
-          <!-- Colonna Email -->
           <div class="social-column">
             <h3 data-i18n="social_email_title">Email</h3>
 
@@ -681,7 +617,6 @@ comfort and user experience.
             </a>
           </div>
 
-          <!-- Colonna LinkedIn -->
           <div class="social-column">
             <h3 data-i18n="social_linkedin_title">LinkedIn</h3>
 
@@ -706,7 +641,6 @@ comfort and user experience.
             </a>
           </div>
 
-          <!-- Colonna Instagram -->
           <div class="social-column">
             <h3 data-i18n="social_instagram_title">Instagram</h3>
 
@@ -724,9 +658,7 @@ comfort and user experience.
         </div>
       </div>
     </section>
-
   </main>
-
 
   <!-- ==========================
        FOOTER
@@ -742,10 +674,7 @@ comfort and user experience.
     </p>
 
     <p class="footer-copy">
-      © <span data-i18n="footer_copy">
-  VReal Space — Tutti i diritti riservati.
-</span>
-
+      <span data-i18n="footer_copy">© 2025 VReal Space — Tutti i diritti riservati.</span>
     </p>
   </footer>
 
@@ -755,517 +684,386 @@ comfort and user experience.
 
   <!-- Topbar: apertura/chiusura menù lingue (solo UI) -->
   <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const switcher = document.querySelector(".lang-switcher");
-    const btn = document.querySelector(".lang-btn");
+    document.addEventListener("DOMContentLoaded", () => {
+      const switcher = document.querySelector(".lang-switcher");
+      const btn = document.querySelector(".lang-btn");
+      if (!switcher || !btn) return;
 
-    if (!switcher || !btn) return;
+      btn.addEventListener("click", () => {
+        switcher.classList.toggle("open");
+      });
 
-    btn.addEventListener("click", () => {
-      switcher.classList.toggle("open");
+      // chiudi menu cliccando fuori
+      document.addEventListener("click", (e) => {
+        if (!switcher.contains(e.target)) switcher.classList.remove("open");
+      });
     });
-  });
   </script>
 
   <!-- Slider hero -->
   <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const slider = document.querySelector(".hero-slider");
-    if (!slider) return;
+    document.addEventListener("DOMContentLoaded", () => {
+      const slider = document.querySelector(".hero-slider");
+      if (!slider) return;
 
-    const slides = slider.querySelectorAll(".hero-slide");
-    const prevBtn = slider.querySelector(".hero-prev");
-    const nextBtn = slider.querySelector(".hero-next");
-    const dots = slider.querySelectorAll(".hero-dot");
+      const slides = slider.querySelectorAll(".hero-slide");
+      const prevBtn = slider.querySelector(".hero-prev");
+      const nextBtn = slider.querySelector(".hero-next");
+      const dots = slider.querySelectorAll(".hero-dot");
 
-    let current = 0;
-    let autoplayId = null;
+      let current = 0;
+      let autoplayId = null;
 
-    function showSlide(index) {
-      slides.forEach((slide, i) => {
-        slide.classList.toggle("active", i === index);
-      });
-      dots.forEach((dot, i) => {
-        dot.classList.toggle("active", i === index);
-      });
-      current = index;
-    }
-
-    function nextSlide() {
-      const next = (current + 1) % slides.length;
-      showSlide(next);
-    }
-
-    function prevSlide() {
-      const prev = (current - 1 + slides.length) % slides.length;
-      showSlide(prev);
-    }
-
-    function startAutoplay() {
-      stopAutoplay();
-      autoplayId = setInterval(nextSlide, 20000);
-    }
-
-    function stopAutoplay() {
-      if (autoplayId) {
-        clearInterval(autoplayId);
-        autoplayId = null;
+      function showSlide(index) {
+        slides.forEach((slide, i) => slide.classList.toggle("active", i === index));
+        dots.forEach((dot, i) => dot.classList.toggle("active", i === index));
+        current = index;
       }
-    }
 
-    prevBtn.addEventListener("click", () => {
-      prevSlide();
-      startAutoplay();
-    });
+      function nextSlide() {
+        showSlide((current + 1) % slides.length);
+      }
 
-    nextBtn.addEventListener("click", () => {
-      nextSlide();
-      startAutoplay();
-    });
+      function prevSlide() {
+        showSlide((current - 1 + slides.length) % slides.length);
+      }
 
-    dots.forEach(dot => {
-      dot.addEventListener("click", () => {
-        const index = parseInt(dot.dataset.slide, 10);
-        showSlide(index);
-        startAutoplay();
+      function startAutoplay() {
+        stopAutoplay();
+        autoplayId = setInterval(nextSlide, 20000);
+      }
+
+      function stopAutoplay() {
+        if (autoplayId) {
+          clearInterval(autoplayId);
+          autoplayId = null;
+        }
+      }
+
+      if (prevBtn) prevBtn.addEventListener("click", () => { prevSlide(); startAutoplay(); });
+      if (nextBtn) nextBtn.addEventListener("click", () => { nextSlide(); startAutoplay(); });
+
+      dots.forEach(dot => {
+        dot.addEventListener("click", () => {
+          const index = parseInt(dot.dataset.slide, 10);
+          showSlide(index);
+          startAutoplay();
+        });
       });
+
+      slider.addEventListener("mouseenter", stopAutoplay);
+      slider.addEventListener("mouseleave", startAutoplay);
+
+      showSlide(0);
+      startAutoplay();
     });
-
-    slider.addEventListener("mouseenter", stopAutoplay);
-    slider.addEventListener("mouseleave", startAutoplay);
-
-    showSlide(0);
-    startAutoplay();
-  });
   </script>
 
   <!-- Traduzioni -->
   <script>
-  const translations = {
-    IT: {
-      tagline: "WHERE IDEAS TAKE SHAPE IN THREE DIMENSIONS.",
-      slide1: "Crea il tuo spazio virtuale con noi",
-      slide2: "Realizziamo le idee nella realtà virtuale",
-      slide3: "Creiamo interni 3D su misura",
-      slide4: "Contestualizziamo il progetto nei paesaggi realistici",
-      slide5: "Integramo gli strumenti generativi intelligenti, ottimizzando tempi e costi",
+    const translations = {
+      IT: {
+        tagline: "WHERE IDEAS TAKE SHAPE IN THREE DIMENSIONS.",
+        slide1: "Crea il tuo spazio virtuale con noi",
+        slide2: "Realizziamo le idee nella realtà virtuale",
+        slide3: "Creiamo interni 3D su misura",
+        slide4: "Contestualizziamo il progetto nei paesaggi realistici",
+        slide5: "Integramo gli strumenti generativi intelligenti, ottimizzando tempi e costi",
 
-      about_title: "Chi siamo",
-      about1: "Team specializzato in archviz e progettazione virtuale",
-      about2: "Esperti in visualizzazione 3D e tecnologie immersive",
-      about3: "Studio di progettazione architettonica",
+        about_title: "Chi siamo",
+        about1: "Team specializzato in archviz e progettazione virtuale",
+        about2: "Esperti in visualizzazione 3D e tecnologie immersive",
+        about3: "Studio di progettazione architettonica",
 
-      services_title: "Cosa facciamo",
-      services1: "Render fotorealistici",
-      services2: "Ambienti 3D, tour VR/AR",
-      services3: "Disegni 2D per progetti e ristrutturazioni",
-      services4: "Contenuti per marketing immobiliare",
+        services_title: "Cosa facciamo",
+        services1: "Render fotorealistici",
+        services2: "Ambienti 3D, tour VR/AR",
+        services3: "Disegni 2D per progetti e ristrutturazioni",
+        services4: "Contenuti per marketing immobiliare",
 
-      partners_title: "Con chi collaboriamo",
-      partners1: "Architetti e ingegneri",
-      partners2: "Imprese di costruzione",
-      partners3: "Agenzie immobiliari",
-      partners4: "Privati e professionisti",
+        partners_title: "Con chi collaboriamo",
+        partners1: "Architetti e ingegneri",
+        partners2: "Imprese di costruzione",
+        partners3: "Agenzie immobiliari",
+        partners4: "Privati e professionisti",
 
-      work_title: "Progetti selezionati",
+        work_title: "Progetti selezionati",
 
-      clients_title: "Clienti e collaborazioni",
-      clients_subtitle: "Una selezione delle aziende coinvolte nei nostri progetti.",
+        clients_title: "Clienti e collaborazioni",
+        clients_subtitle: "Una selezione delle aziende coinvolte nei nostri progetti.",
 
-      contact_title: "Contattaci",
-      contact_name: "Nome / Studio",
-      contact_email: "Email",
-      contact_subject: "Oggetto",
-      contact_message: "Messaggio",
-      contact_send: "Invia richiesta",
+        contact_title: "Contattaci",
+        contact_name: "Nome / Studio",
+        contact_email: "Email",
+        contact_subject: "Oggetto",
+        contact_message: "Messaggio",
+        contact_send: "Invia richiesta",
 
-      footer_email: "info.vrealspace@gmail.com",
-      footer_tagline: "VReal Space: trasforma il tuo spazio in una dimensione digitale unica!",
-      footer_copy: "© 2025 VReal Space — Tutti i diritti riservati.",
+        footer_email: "info.vrealspace@gmail.com",
+        footer_tagline: "VReal Space: trasforma il tuo spazio in una dimensione digitale unica!",
+        footer_copy: "© 2025 VReal Space — Tutti i diritti riservati.",
 
-      events_title: "Esposizioni ed eventi",
-      events_subtitle: "Alcuni eventi che hanno ospitato i nostri progetti.",
+        events_title: "Esposizioni ed eventi",
+        events_subtitle: "Alcuni eventi che hanno ospitato i nostri progetti.",
 
-      contact_social_title: "Contatti & Social",
-      
-      social_title: "Contatti & Social",
-      social_subtitle: "Resta in contatto con noi o seguici sui nostri canali.",
-      social_email_title: "Email",
-      social_linkedin_title: "LinkedIn",
-      social_instagram_title: "Instagram",
+        social_title: "Contatti & Social",
+        social_subtitle: "Resta in contatto con noi o seguici sui nostri canali.",
+        social_email_title: "Email",
+        social_linkedin_title: "LinkedIn",
+        social_instagram_title: "Instagram",
+      },
 
-    },
+      EN: {
+        tagline: "WHERE IDEAS TAKE SHAPE IN THREE DIMENSIONS.",
+        slide1: "Create your virtual space with us",
+        slide2: "We turn ideas into virtual reality",
+        slide3: "We create bespoke 3D interiors.",
+        slide4: "We contextualize your project in realistic environments",
+        slide5: "We integrate AI tools to optimize time and cost",
 
-    EN: {
-      tagline: "WHERE IDEAS TAKE SHAPE IN THREE DIMENSIONS.",
-      slide1: "Create your virtual space with us",
-      slide2: "We turn ideas into virtual reality",
-      slide3: "We create bespoke 3D interiors.",
-      slide4: "We contextualize your project in realistic environments",
-      slide5: "We integrate AI tools to optimize time and cost",
+        about_title: "About us",
+        about1: "Team specialized in archviz and virtual design",
+        about2: "Experts in 3D visualization and immersive technologies",
+        about3: "Architectural design studio",
 
-      about_title: "About us",
-      about1: "Team specialized in archviz and virtual design",
-      about2: "Experts in 3D visualization and immersive technologies",
-      about3: "Architectural design studio",
+        services_title: "What we do",
+        services1: "Photorealistic renderings",
+        services2: "3D environments, VR/AR tours",
+        services3: "2D drawings for projects and renovations",
+        services4: "Content for real estate marketing",
 
-      services_title: "What we do",
-      services1: "Photorealistic renderings",
-      services2: "3D environments, VR/AR tours",
-      services3: "2D drawings for projects and renovations",
-      services4: "Content for real estate marketing",
+        partners_title: "Who we work with",
+        partners1: "Architects and engineers",
+        partners2: "Construction companies",
+        partners3: "Real estate agencies",
+        partners4: "Private clients and professionals",
 
-      partners_title: "Who we work with",
-      partners1: "Architects and engineers",
-      partners2: "Construction companies",
-      partners3: "Real estate agencies",
-      partners4: "Private clients and professionals",
+        work_title: "Selected projects",
 
-      work_title: "Selected projects",
+        clients_title: "Clients & collaborations",
+        clients_subtitle: "A selection of the companies involved in our projects.",
 
-      clients_title: "Clients & collaborations",
-      clients_subtitle: "A selection of the companies involved in our projects.",
+        contact_title: "Contact us",
+        contact_name: "Name / Studio",
+        contact_email: "Email",
+        contact_subject: "Subject",
+        contact_message: "Message",
+        contact_send: "Send request",
 
-      contact_title: "Contact us",
-      contact_name: "Name / Studio",
-      contact_email: "Email",
-      contact_subject: "Subject",
-      contact_message: "Message",
-      contact_send: "Send request",
+        footer_email: "info.vrealspace@gmail.com",
+        footer_tagline: "VReal Space: transform your space into a unique digital dimension!",
+        footer_copy: "© 2025 VReal Space — All rights reserved.",
 
-      footer_email: "info.vrealspace@gmail.com",
-      footer_tagline: "VReal Space: transform your space into a unique digital dimension!",
-      footer_copy: "© 2025 VReal Space — All rights reserved.",
+        events_title: "Exhibitions and Events",
+        events_subtitle: "Some events that have showcased our projects.",
 
-      events_title: "Exhibitions and Events:",
-      events_subtitle: "Some events that have showcased our projects.",
+        social_title: "Contacts & Social",
+        social_subtitle: "Stay in touch with us or follow our social channels.",
+        social_email_title: "Email",
+        social_linkedin_title: "LinkedIn",
+        social_instagram_title: "Instagram",
+      },
 
-      contact_social_title: "Contacts & Social",
-      
-      social_title: "Contacts & Social",
-      social_subtitle: "Stay in touch with us or follow our social channels.",
-      social_email_title: "Email",
-      social_linkedin_title: "LinkedIn",
-      social_instagram_title: "Instagram",
+      RU: {
+        tagline: "ГДЕ ИДЕИ ПРИОБРЕТАЮТ ФОРМУ В ТРЁХ ИЗМЕРЕНИХ.",
+        slide1: "Создайте своё виртуальное пространство с нами",
+        slide2: "Мы воплощаем идеи в виртуальной реальности",
+        slide3: "Мы создаём индивидуальные 3D-интерьеры",
+        slide4: "Мы визуализируем проект в реалистичных ландшафтах",
+        slide5: "Мы интегрируем инструменты ИИ, оптимизируя время и затраты",
 
-    },
+        about_title: "О нас",
+        about1: "Команда, специализирующаяся на archviz и виртуальном проектировании",
+        about2: "Эксперты в 3D-визуализации и иммерсивных технологиях",
+        about3: "Архитектурная проектная студия",
 
-    RU: {
-      tagline: "ГДЕ ИДЕИ ПРИОБРЕТАЮТ ФОРМУ В ТРЁХ ИЗМЕРЕНИЯХ.",
-      slide1: "Создайте своё виртуальное пространство с нами",
-      slide2: "Мы воплощаем идеи в виртуальной реальности",
-      slide3: "Мы создаём индивидуальные 3D-интерьеры",
-      slide4: "Мы визуализируем проект в реалистичных ландшафтах",
-      slide5: "Мы интегрируем инструменты ИИ, оптимизируя время и затраты",
+        services_title: "Что мы делаем",
+        services1: "Фотореалистичные рендеры",
+        services2: "3D-пространства, VR/AR-туры",
+        services3: "2D-чертежи для проектов и реконструкций",
+        services4: "Контент для маркетинга недвижимости",
 
-      about_title: "О нас",
-      about1: "Команда, специализирующаяся на archviz и виртуальном проектировании",
-      about2: "Эксперты в 3D-визуализации и иммерсивных технологиях",
-      about3: "Архитектурная проектная студия",
+        partners_title: "С кем мы сотрудничаем",
+        partners1: "Архитекторы и инженеры",
+        partners2: "Строительные компании",
+        partners3: "Агентства недвижимости",
+        partners4: "Частные заказчики и профессионалы",
 
-      services_title: "Что мы делаем",
-      services1: "Фотореалистичные рендеры",
-      services2: "3D-пространства, VR/AR-туры",
-      services3: "2D-чертежи для проектов и реконструкций",
-      services4: "Контент для маркетинга недвижимости",
+        work_title: "Избранные проекты",
 
-      partners_title: "С кем мы сотрудничаем",
-      partners1: "Архитекторы и инженеры",
-      partners2: "Строительные компании",
-      partners3: "Агентства недвижимости",
-      partners4: "Частные заказчики и профессионалы",
+        clients_title: "Клиенты и партнёры",
+        clients_subtitle: "Подборка компаний, участвовавших в наших проектах.",
 
-      work_title: "Избранные проекты",
+        contact_title: "Свяжитесь с нами",
+        contact_name: "Имя / Студия",
+        contact_email: "Email",
+        contact_subject: "Тема",
+        contact_message: "Сообщение",
+        contact_send: "Отправить",
 
-      clients_title: "Клиенты и партнёры",
-      clients_subtitle: "Подборка компаний, участвовавших в наших проектах.",
+        footer_email: "info.vrealspace@gmail.com",
+        footer_tagline: "VReal Space: превратите своё пространство в уникальное цифровое измерение!",
+        footer_copy: "© 2025 VReal Space — Все права защищены.",
 
-      contact_title: "Свяжитесь с нами",
-      contact_name: "Имя / Студия",
-      contact_email: "Email",
-      contact_subject: "Тема",
-      contact_message: "Сообщение",
-      contact_send: "Отправить запрос",
+        events_title: "Презентации и мероприятия",
+        events_subtitle: "Некоторые мероприятия, на которых были представлены наши проекты.",
 
-      footer_email: "info.vrealspace@gmail.com",
-      footer_tagline: "VReal Space: превратите своё пространство в уникальное цифровое измерение!",
-      footer_copy: "© 2025 VReal Space — Все права защищены.",
-
-      events_title: "Презентации и мероприятия:",
-      events_subtitle: "Некоторые мероприятия, на которых были представлены наши проекты.",
-
-      contact_social_title: "Контакты и социальные сети",
-
-      social_title: "Контакты и соцсети",
-      social_subtitle: "Оставайтесь с нами на связи и следите за нами в соцсетях.",
-      social_email_title: "Email",
-      social_linkedin_title: "LinkedIn",
-      social_instagram_title: "Instagram",
-
-    }
-  };
+        social_title: "Контакты и соцсети",
+        social_subtitle: "Оставайтесь с нами на связи и следите за нами в соцсетях.",
+        social_email_title: "Email",
+        social_linkedin_title: "LinkedIn",
+        social_instagram_title: "Instagram",
+      }
+    };
   </script>
 
-  <!-- Cambio lingua (usa translations) -->
+  <!-- Cambio lingua -->
   <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll(".lang-menu li").forEach(li => {
-      li.addEventListener("click", () => {
-        const lang = li.dataset.lang;
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll(".lang-menu li").forEach(li => {
+        li.addEventListener("click", () => {
+          const lang = li.dataset.lang;
+          document.getElementById("current-lang").textContent = lang;
 
-        document.getElementById("current-lang").textContent = lang;
-
-        document.querySelectorAll("[data-i18n]").forEach(el => {
-          const key = el.dataset.i18n;
-          if (translations[lang] && translations[lang][key]) {
-            el.textContent = translations[lang][key];
-          }
+          document.querySelectorAll("[data-i18n]").forEach(el => {
+            const key = el.dataset.i18n;
+            if (translations[lang] && translations[lang][key]) {
+              el.textContent = translations[lang][key];
+            }
+          });
         });
       });
     });
-  });
   </script>
 
-  <!-- Video autoplay/suono -->
+  <!-- Video autoplay + toggle audio -->
   <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const video = document.getElementById("about-video");
-    if (!video) return;
+    document.addEventListener("DOMContentLoaded", () => {
+      const video = document.getElementById("about-video");
+      const soundBtn = document.getElementById("video-sound-toggle");
+      if (!video) return;
 
-    const playPromise = video.play();
-    if (playPromise !== undefined) {
-      playPromise.catch(() => {
-        video.muted = true;
-        video.play().catch(() => {});
-      });
-    }
-  });
-  </script>
+      video.muted = true;
 
-  <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const video = document.getElementById("about-video");
-    const soundBtn = document.getElementById("video-sound-toggle");
-    if (!video) return;
-
-    video.muted = true;
-
-    const playPromise = video.play();
-    if (playPromise !== undefined) {
-      playPromise.catch(() => {
-        video.muted = true;
-        video.play().catch(() => {});
-      });
-    }
-
-    const updateIcon = () => {
-      if (!soundBtn) return;
-      soundBtn.textContent = video.muted ? "🔇" : "🔊";
-    };
-    updateIcon();
-
-    const toggleSound = () => {
-      video.muted = !video.muted;
-      if (video.paused) {
-        video.play().catch(() => {});
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          video.muted = true;
+          video.play().catch(() => {});
+        });
       }
+
+      const updateIcon = () => {
+        if (!soundBtn) return;
+        soundBtn.textContent = video.muted ? "🔇" : "🔊";
+      };
       updateIcon();
-    };
 
-    if (soundBtn) {
-      soundBtn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        toggleSound();
+      const toggleSound = () => {
+        video.muted = !video.muted;
+        if (video.paused) video.play().catch(() => {});
+        updateIcon();
+      };
+
+      if (soundBtn) {
+        soundBtn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          toggleSound();
+        });
+      }
+
+      video.addEventListener("click", toggleSound);
+    });
+  </script>
+
+  <!-- Slider lavori (portfolio) -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const track   = document.querySelector(".works-track");
+      const prevBtn = document.querySelector(".works-prev");
+      const nextBtn = document.querySelector(".works-next");
+
+      if (!track || !prevBtn || !nextBtn) return;
+
+      function scrollAmount() {
+        return track.clientWidth * 0.5;
+      }
+
+      prevBtn.addEventListener("click", () => {
+        track.scrollBy({ left: -scrollAmount(), behavior: "smooth" });
       });
-    }
 
-    video.addEventListener("click", () => {
-      toggleSound();
+      nextBtn.addEventListener("click", () => {
+        track.scrollBy({ left: scrollAmount(), behavior: "smooth" });
+      });
     });
-  });
   </script>
 
-    <!-- Slider lavori (portfolio) -->
+  <!-- Slider clienti -->
   <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const track   = document.querySelector(".works-track");
-    const prevBtn = document.querySelector(".works-prev");
-    const nextBtn = document.querySelector(".works-next");
+    document.addEventListener("DOMContentLoaded", () => {
+      const track = document.querySelector(".clients-logos");
+      const prev = document.querySelector(".clients-prev");
+      const next = document.querySelector(".clients-next");
+      if (!track || !prev || !next) return;
 
-    if (!track || !prevBtn || !nextBtn) return;
+      function scrollAmount() {
+        return track.clientWidth * 0.4;
+      }
 
-    function scrollAmount() {
-      return track.clientWidth * 0.5; // metà larghezza visibile
-    }
+      prev.addEventListener("click", () => {
+        track.scrollBy({ left: -scrollAmount(), behavior: "smooth" });
+      });
 
-    prevBtn.addEventListener("click", () => {
-      track.scrollBy({ left: -scrollAmount(), behavior: "smooth" });
+      next.addEventListener("click", () => {
+        track.scrollBy({ left: scrollAmount(), behavior: "smooth" });
+      });
     });
-
-    nextBtn.addEventListener("click", () => {
-      track.scrollBy({ left: scrollAmount(), behavior: "smooth" });
-    });
-  });
   </script>
-
-  <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const track = document.querySelector(".clients-logos");
-  const prev = document.querySelector(".clients-prev");
-  const next = document.querySelector(".clients-next");
-
-  if (!track) return;
-
-  function scrollAmount() {
-    return track.clientWidth * 0.4; // 40% della larghezza
-  }
-
-  prev.addEventListener("click", () => {
-    track.scrollBy({ left: -scrollAmount(), behavior: "smooth" });
-  });
-
-  next.addEventListener("click", () => {
-    track.scrollBy({ left: scrollAmount(), behavior: "smooth" });
-  });
-});
-</script>
 
   <!-- Freccia scroll down -->
   <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const scrollBtn = document.getElementById("scroll-down-btn");
-    const aboutSection = document.querySelector("#info-section");
+    document.addEventListener("DOMContentLoaded", () => {
+      const scrollBtn = document.getElementById("scroll-down-btn");
+      const aboutSection = document.querySelector("#info-section");
+      if (!scrollBtn || !aboutSection) return;
 
-    if (scrollBtn && aboutSection) {
       scrollBtn.addEventListener("click", () => {
         const offset = 100;
         const sectionTop = aboutSection.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({ top: sectionTop - offset, behavior: "smooth" });
+      });
+    });
+  </script>
 
-        window.scrollTo({
-          top: sectionTop - offset,
-          behavior: "smooth"
+  <!-- MOBILE: overlay su TAP (USA SOLO .is-active) -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const isMobile = window.matchMedia("(max-width: 600px)").matches;
+      if (!isMobile) return;
+
+      const items = document.querySelectorAll(".work-item");
+
+      const closeAll = () => items.forEach(i => i.classList.remove("is-active"));
+
+      items.forEach(item => {
+        item.addEventListener("click", (e) => {
+          e.stopPropagation();
+          const alreadyOpen = item.classList.contains("is-active");
+          closeAll();
+          if (!alreadyOpen) item.classList.add("is-active");
         });
       });
-    }
-  });
+
+      document.addEventListener("click", closeAll);
+
+      const track = document.querySelector(".works-track");
+      if (track) {
+        track.addEventListener("scroll", closeAll, { passive: true });
+        track.addEventListener("touchmove", closeAll, { passive: true });
+      }
+    });
   </script>
-
-  <!-- Anno corrente nel footer -->
-  <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const yearSpan = document.getElementById("current-year");
-    if (yearSpan) {
-      yearSpan.textContent = new Date().getFullYear();
-    }
-  });
-  </script>
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const track = document.querySelector(".events-logos");
-  const prev  = document.querySelector(".events-prev");
-  const next  = document.querySelector(".events-next");
-
-  if (!track || !prev || !next) return;
-
-  function scrollAmount() {
-    return track.clientWidth * 0.4;
-  }
-
-  prev.addEventListener("click", () => {
-    track.scrollBy({ left: -scrollAmount(), behavior: "smooth" });
-  });
-
-  next.addEventListener("click", () => {
-    track.scrollBy({ left: scrollAmount(), behavior: "smooth" });
-  });
-});
-</script>
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const track = document.querySelector(".events-logos");
-  const prev  = document.querySelector(".events-prev");
-  const next  = document.querySelector(".events-next");
-
-  if (!track || !prev || !next) return;
-
-  function scrollAmount() {
-    return track.clientWidth * 0.4;
-  }
-
-  prev.addEventListener("click", () => {
-    track.scrollBy({ left: -scrollAmount(), behavior: "smooth" });
-  });
-
-  next.addEventListener("click", () => {
-    track.scrollBy({ left: scrollAmount(), behavior: "smooth" });
-  });
-});
-</script>
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  if (window.innerWidth > 600) return;
-
-  document.querySelectorAll(".work-item").forEach(item => {
-    item.addEventListener("click", (e) => {
-      e.stopPropagation();
-
-      // chiudi gli altri
-      document.querySelectorAll(".work-item.active").forEach(el => {
-        if (el !== item) el.classList.remove("active");
-      });
-
-      // toggle su quello cliccato
-      item.classList.toggle("active");
-    });
-  });
-
-  // tap fuori → chiude tutto
-  document.addEventListener("click", () => {
-    document.querySelectorAll(".work-item.active").forEach(el => {
-      el.classList.remove("active");
-    });
-  });
-});
-</script>
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const isMobile = window.matchMedia("(max-width: 600px)").matches;
-  if (!isMobile) return;
-
-  const items = document.querySelectorAll(".work-item");
-
-  // chiude tutti
-  const closeAll = () => {
-    items.forEach(i => i.classList.remove("is-active"));
-  };
-
-  items.forEach(item => {
-    item.addEventListener("click", (e) => {
-      e.stopPropagation();
-
-      // se era già aperto -> chiudi
-      const alreadyOpen = item.classList.contains("is-active");
-      closeAll();
-      if (!alreadyOpen) item.classList.add("is-active");
-    });
-  });
-
-  // tap fuori -> chiudi
-  document.addEventListener("click", closeAll);
-
-  // scroll/swipe -> chiudi (opzionale ma spesso migliora UX)
-  const track = document.querySelector(".works-track");
-  if (track) {
-    track.addEventListener("scroll", closeAll, { passive: true });
-    track.addEventListener("touchmove", closeAll, { passive: true });
-  }
-});
-</script>
-
 
 </body>
 </html>
