@@ -389,14 +389,14 @@ body {
     transform: translateX(-50%) translateY(8px) rotate(-45deg);
   }
 }
-/* --- Sezione Chi Siamo --- */
+
 /* --- Sezione Chi Siamo --- */
 /* =====================================
    SEZIONE INFO: CHI SIAMO / COSA FACCIAMO / CON CHI COLLABORIAMO
    ===================================== */
 
 .info-section {
-  padding: 80px 8% 1px; /* sopra - laterali - sotto */
+  padding: 80px 8% 3px; /* sopra - laterali - sotto */
   background: #000;
   color: #fff;
 }
@@ -486,7 +486,7 @@ body {
 
 /* --- Sezione video presentazione --- */
 .video-section {
-  padding: 30px 0 120px;
+  padding: 20px 0 60px;
   background: #000;      /* stesso sfondo del sito */
   display: flex;
   justify-content: center;
@@ -530,11 +530,23 @@ body {
   background: rgba(0, 0, 0, 0.85);
 }
 
+/* YouTube embed al posto del <video> */
+.video-wrapper {
+  aspect-ratio: 16 / 9;   /* mantiene il formato orizzontale */
+}
+
+.video-wrapper .video-embed {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: 0;
+}
+
 /* ====== SEZIONE LAVORI / PORTFOLIO ====== */
 
 .works-section {
   background: #000;
-  padding: 80px 0 100px;
+  padding: 10px 0 100px;
   color: #fff;
 }
 
@@ -646,6 +658,69 @@ body {
   display: none;         /* Chrome, Safari */
 }
 
+/* ==== WORK ITEM CON OVERLAY (HOVER) ==== */
+
+.work-item {
+  position: relative;
+  flex: 0 0 auto;
+  border-radius: 16px;
+  overflow: hidden;              /* serve per tagliare zoom/overlay */
+}
+
+/* l'immagine dentro il work-item prende lo stesso stile delle altre */
+.work-item img {
+  display: block;
+  height: 260px;
+  width: auto;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+/* zoom leggero al passaggio del mouse */
+.work-item:hover img {
+  transform: scale(1.06);
+}
+
+/* velo chiaro con testo */
+.work-overlay {
+  position: absolute;
+  inset: 0;
+  /* patina scura, abbastanza trasparente da vedere bene il progetto */
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;                 /* testo bianco */
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  padding: 20px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
+  font-size: 12px;
+  line-height: 1.5;
+  overflow-y: hidden;
+}
+
+
+/* quando passo col mouse, appare l’overlay */
+.work-item:hover .work-overlay {
+  opacity: 1;
+}
+
+/* titolino del progetto */
+.work-overlay h3 {
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+/* descrizione un filo più “leggera” */
+.work-overlay .work-desc {
+  margin-top: 4px;
+  margin-bottom: 6px;
+}
+
 
 /* ==========================
    SEZIONE CLIENTI / COLLABORAZIONI
@@ -655,7 +730,8 @@ body {
   background: #000;
   padding: 60px 8% 80px;
   color: #fff;
-  border-top: 1px solid #111;
+  border-top: 1px solid #222;              /* prima #111 */
+  box-shadow: 0 -1px 0 rgba(255,255,255,.04); /* leggerissimo chiarore */
 }
 
 .clients-inner {
@@ -798,7 +874,8 @@ body {
   background: #000;
   padding: 80px 8% 100px;
   color: #fff;
-  border-top: 1px solid #111;
+  border-top: 1px solid #222;              /* prima #111 */
+  box-shadow: 0 -1px 0 rgba(255,255,255,.04); /* leggerissimo chiarore */
 }
 
 .contact-inner {
@@ -950,7 +1027,7 @@ body {
 .footer-separator {
   width: 100%;
   border: 0;
-  border-top: 1px solid #333; /* sottile linea grigio scuro */
+  border-top: 1px solid #222; /* sottile linea grigio scuro */
   margin: 40px 0 0 0;
 }
 
@@ -985,7 +1062,8 @@ body {
   background: #000;
   padding: 60px 8% 80px;
   color: #fff;
-  border-top: 1px solid #111;
+  border-top: 1px solid #222;              /* prima #111 */
+  box-shadow: 0 -1px 0 rgba(255,255,255,.04); /* leggerissimo chiarore */
 }
 
 .events-inner {
@@ -1074,7 +1152,8 @@ body {
   background: #000;
   padding: 70px 8% 80px;
   color: #fff;
-  border-top: 1px solid #111;
+  border-top: 1px solid #222;              /* prima #111 */
+  box-shadow: 0 -1px 0 rgba(255,255,255,.04); /* leggerissimo chiarore */
 }
 
 .social-inner {
@@ -1613,5 +1692,63 @@ body {
     max-width: 100%;
     font-size: 18px;
     letter-spacing: 0.12em;
+  }
+}
+
+.section-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    rgba(255,255,255,0.03) 0%,
+    rgba(255,255,255,0.12) 50%,
+    rgba(255,255,255,0.03) 100%
+  );
+  margin: 60px 0; /* distanza dalle sezioni */
+}
+
+/* ==========================
+   WORK OVERLAY (DESKTOP + BASE)
+============================== */
+
+.work-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 22px; /* se vuoi l'angolo come le immagini */
+}
+
+.work-item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* overlay sopra l’immagine */
+.work-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.72);
+  color: #fff;
+
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity .25s ease, transform .25s ease;
+
+  pointer-events: none;
+
+  /* layout testo */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 22px;
+}
+
+/* DESKTOP hover */
+@media (hover: hover) and (pointer: fine) {
+  .work-item:hover .work-overlay {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
   }
 }
