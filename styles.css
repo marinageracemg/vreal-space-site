@@ -81,9 +81,6 @@ body {
   transform: translateX(-50%) rotate(225deg);
 }
 
-/* Nome brand */
-
-
 /* --- TESTO CENTRALE --- */
 
 .topbar-center {
@@ -131,9 +128,6 @@ body {
   object-fit: contain;
 }
 
-/* Select lingua */
-
-
 .lang-arrow {
   font-size: 10px;
 }
@@ -142,11 +136,7 @@ body {
 
 .lang-switcher {
   position: relative;
-}
-
-.lang-switcher {
-  position: relative;
-  border: none;        
+  border: none;
 }
 
 .lang-btn {
@@ -178,6 +168,7 @@ body {
   background: #000;
   border: 1px solid #555;
   display: none;             /* nascosto di default */
+  z-index: 3000;
 }
 
 .lang-menu li {
@@ -213,7 +204,6 @@ body {
     width: 100%;
     padding: 0;
     margin-top: 6px;
-  
   }
 }
 
@@ -230,8 +220,6 @@ body {
   overflow: hidden;
 }
 
-
-
 /* Ogni slide occupa tutto lo schermo */
 .hero-slide {
   position: absolute;
@@ -243,14 +231,13 @@ body {
 
 /* Video full-screen */
 .hero-slide video {
-  width: 100%;              /* riduce la larghezza */
+  width: 100%;
   height: 100%;
   object-fit: cover;
-  margin: 0 auto;          /* centra il video */
+  margin: 0 auto;
   display: block;
-  border-radius: 20px;     /* opzionale */
+  border-radius: 20px;
 }
-
 
 /* Slide visibile */
 .hero-slide.active {
@@ -278,15 +265,14 @@ body {
 }
 
 .hero-content h1 {
-    font-weight: 400;
-    font-size: clamp(26px, 3vw, 42px);
-    letter-spacing: 0.18em;
-    text-transform: none;
-    max-width: 80%;       /* << QUI STRINGE IL TESTO */
-    margin: 0 auto;       /* centra l’h1 anche se ha max-width */
-    text-align: center;   /* mantiene testo centrato */
+  font-weight: 400;
+  font-size: clamp(26px, 3vw, 42px);
+  letter-spacing: 0.18em;
+  text-transform: none;
+  max-width: 80%;
+  margin: 0 auto;
+  text-align: center;
 }
-
 
 /* Frecce */
 .hero-arrow {
@@ -302,17 +288,10 @@ body {
   z-index: 2;
 }
 
-.hero-prev {
-  left: 40px;
-}
+.hero-prev { left: 40px; }
+.hero-next { right: 40px; }
 
-.hero-next {
-  right: 40px;
-}
-
-.hero-arrow:hover {
-  opacity: 0.7;
-}
+.hero-arrow:hover { opacity: 0.7; }
 
 /* Pallini */
 .hero-dots {
@@ -334,23 +313,14 @@ body {
   cursor: pointer;
 }
 
-.hero-dot.active {
-  background: #fff;
-}
+.hero-dot.active { background: #fff; }
 
 /* Mobile */
 @media (max-width: 768px) {
-  .hero-prev {
-    left: 16px;
-  }
+  .hero-prev { left: 16px; }
+  .hero-next { right: 16px; }
 
-  .hero-next {
-    right: 16px;
-  }
-
-  .hero-content {
-    padding: 0 16px;
-  }
+  .hero-content { padding: 0 16px; }
 
   .hero-content h1 {
     font-size: 20px;
@@ -361,24 +331,18 @@ body {
 /* Freccia scroll down */
 .scroll-down {
   position: absolute;
-  bottom: 80px; /* ← alzata rispetto ai pallini (prima 40px) */
+  bottom: 80px;
   left: 50%;
-
-  width: 18px;   /* ← più piccola (prima 24px) */
-  height: 18px;  /* ← più piccola (prima 24px) */
-
-  border-left: 2px solid rgba(255, 255, 255, 0.7); 
+  width: 18px;
+  height: 18px;
+  border-left: 2px solid rgba(255, 255, 255, 0.7);
   border-bottom: 2px solid rgba(255, 255, 255, 0.7);
-
   transform: translateX(-50%) rotate(-45deg);
   opacity: 0.8;
   cursor: pointer;
   animation: scroll-bounce 1.6s infinite;
   z-index: 10;
 }
-
-
-
 
 /* Effetto “rimbalzo” leggero */
 @keyframes scroll-bounce {
@@ -390,17 +354,15 @@ body {
   }
 }
 
-/* --- Sezione Chi Siamo --- */
 /* =====================================
-   SEZIONE INFO: CHI SIAMO / COSA FACCIAMO / CON CHI COLLABORIAMO
+   SEZIONE INFO
    ===================================== */
 
 .info-section {
-  padding: 80px 8% 3px; /* sopra - laterali - sotto */
+  padding: 80px 8% 3px;
   background: #000;
   color: #fff;
 }
-
 
 /* Griglia a 3 colonne */
 .info-grid {
@@ -452,54 +414,45 @@ body {
   margin-bottom: 8px;
 }
 
-/* --- Responsive --- */
-
-/* Da tablet: 2 colonne */
+/* Responsive */
 @media (max-width: 900px) {
   .info-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-/* Da mobile: 1 colonna */
 @media (max-width: 600px) {
   .info-grid {
     grid-template-columns: 1fr;
   }
 
-  .info-card {
-    padding: 28px 22px;
-  }
+  .info-card { padding: 28px 22px; }
 
-  .info-card h3 {
-    font-size: 16px;
-  }
+  .info-card h3 { font-size: 16px; }
 
-  .info-list li {
-    font-size: 13px;
-  }
+  .info-list li { font-size: 13px; }
 }
 
 /* ==========================
    Sezione video di presentazione
 ============================== */
 
-/* --- Sezione video presentazione --- */
 .video-section {
   padding: 20px 0 60px;
-  background: #000;      /* stesso sfondo del sito */
+  background: #000;
   display: flex;
   justify-content: center;
 }
 
 .video-wrapper {
-  position: relative;    /* necessario per il bottone audio */
+  position: relative;
   max-width: 1200px;
   width: 90%;
   margin: 0 auto;
   border-radius: 24px;
   overflow: hidden;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  aspect-ratio: 16 / 9;
 }
 
 .video-wrapper video {
@@ -518,7 +471,7 @@ body {
   padding: 10px 12px;
   border: none;
   border-radius: 50%;
-  background: rgba(0, 0, 0, 0.6); /* nero semitrasparente */
+  background: rgba(0, 0, 0, 0.6);
   color: #fff;
   font-size: 20px;
   cursor: pointer;
@@ -528,11 +481,6 @@ body {
 
 .video-sound-toggle:hover {
   background: rgba(0, 0, 0, 0.85);
-}
-
-/* YouTube embed al posto del <video> */
-.video-wrapper {
-  aspect-ratio: 16 / 9;   /* mantiene il formato orizzontale */
 }
 
 .video-wrapper .video-embed {
@@ -577,6 +525,9 @@ body {
 
 /* Frecce */
 .works-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   border: 1px solid rgba(255, 255, 255, 0.4);
   background: rgba(0, 0, 0, 0.7);
   color: #fff;
@@ -589,124 +540,106 @@ body {
   justify-content: center;
   font-size: 22px;
   transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
-}
-
-.works-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);   /* centra verticalmente */
   z-index: 10;
 }
-.works-prev {
-  left: 0;   /* o -10px se vuoi più esterno */
-}
 
-.works-next {
-  right: 0;  /* o -10px se vuoi più esterno */
-}
-
+.works-prev { left: 0; }
+.works-next { right: 0; }
 
 .works-arrow:hover {
   background: rgba(255, 255, 255, 0.1);
   border-color: #fff;
-  transform: translateY(-1px);
+  transform: translateY(-50%) scale(1.03);
 }
 
 /* Area che scorre orizzontalmente */
 .works-track {
   flex: 1;
-  overflow-x: auto;      /* scroll orizzontale */
+  overflow-x: scroll;
   overflow-y: hidden;
+  scrollbar-width: none;
 }
 
-/* UNA sola riga di immagini */
+.works-track::-webkit-scrollbar { display: none; }
+
+/* UNA sola riga di card */
 .works-slide {
   display: flex;
-  flex-wrap: nowrap;     /* niente a capo */
+  flex-wrap: nowrap;
   gap: 16px;
+  padding: 0 60px; /* spazio interno per non coprire le card con le frecce */
 }
 
-/* Immagini lavori in riga */
-.works-slide img {
-  flex: 0 0 auto;        /* non si comprimono */
-  height: 260px;         /* regola come vuoi */
-  width: auto;
-  object-fit: cover;
-  display: block;
-  border-radius: 16px;
-}
-
-/* Responsive solo per il titolo/ padding */
-@media (max-width: 640px) {
-  .works-slider {
-    padding: 0 16px;
-  }
-
-  .works-header h2 {
-    font-size: 22px;
-    text-align: center;
-  }
-}
-/* Nasconde scrollbar su tutti i browser */
-.works-track {
-  overflow-x: scroll;    /* serve per far scorrere con JS */
-  overflow-y: hidden;
-  scrollbar-width: none; /* Firefox */
-}
-
-.works-track::-webkit-scrollbar {
-  display: none;         /* Chrome, Safari */
-}
-
-/* ==== WORK ITEM CON OVERLAY (HOVER) ==== */
+/* ==========================
+   WORK ITEM + OVERLAY (BASE)
+============================== */
 
 .work-item {
   position: relative;
   flex: 0 0 auto;
-  border-radius: 16px;
-  overflow: hidden;              /* serve per tagliare zoom/overlay */
+  border-radius: 22px;
+  overflow: hidden;
 }
 
-/* l'immagine dentro il work-item prende lo stesso stile delle altre */
-.work-item img {
-  display: block;
-  height: 260px;
-  width: auto;
-  object-fit: cover;
-  transition: transform 0.5s ease;
+/* DESKTOP: card basata su altezza (come prima) */
+@media (min-width: 601px) {
+  .work-item {
+    height: 260px;
+    width: auto;
+  }
+
+  .work-item img {
+    height: 260px;
+    width: auto;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+
+  .work-item:hover img {
+    transform: scale(1.06);
+  }
 }
 
-/* zoom leggero al passaggio del mouse */
-.work-item:hover img {
-  transform: scale(1.06);
+/* MOBILE: card proporzionata (NO STRISCE) */
+@media (max-width: 600px) {
+  .work-item {
+    width: 78vw;            /* card più piccola e adatta al mobile */
+    max-width: 360px;
+    aspect-ratio: 4 / 3;    /* proporzione corretta */
+    height: auto;           /* IMPORTANTISSIMO: niente altezze forzate */
+  }
+
+  .work-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
 }
 
-/* velo chiaro con testo */
+/* overlay sopra l’immagine (bello, uniforme) */
 .work-overlay {
   position: absolute;
   inset: 0;
-  /* patina scura, abbastanza trasparente da vedere bene il progetto */
-  background: rgba(0, 0, 0, 0.55);
-  color: #fff;                 /* testo bianco */
+  background: rgba(0,0,0,0.72);
+  color: #fff;
+
   opacity: 0;
-  transition: opacity 0.35s ease;
-  padding: 20px 22px;
+  transform: translateY(10px);
+  transition: opacity .25s ease, transform .25s ease;
+
+  pointer-events: none;
+
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  justify-content: flex-end;
+  padding: 22px;
   text-align: left;
-  font-size: 12px;
   line-height: 1.5;
-  overflow-y: hidden;
 }
 
-
-/* quando passo col mouse, appare l’overlay */
-.work-item:hover .work-overlay {
-  opacity: 1;
-}
-
-/* titolino del progetto */
+/* titolo overlay */
 .work-overlay h3 {
   font-size: 16px;
   font-weight: 400;
@@ -715,12 +648,50 @@ body {
   margin-bottom: 8px;
 }
 
-/* descrizione un filo più “leggera” */
-.work-overlay .work-desc {
-  margin-top: 4px;
-  margin-bottom: 6px;
+/* testo overlay */
+.work-overlay p {
+  font-size: 12px;
 }
 
+.work-overlay .work-desc {
+  margin-top: 6px;
+}
+
+/* DESKTOP hover */
+@media (hover: hover) and (pointer: fine) {
+  .work-item:hover .work-overlay {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+}
+
+/* MOBILE tap: l’overlay viene mostrato via JS aggiungendo .is-active */
+@media (hover: none) and (pointer: coarse) {
+  .work-item.is-active .work-overlay {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  /* testo più leggibile su mobile */
+  .work-overlay h3 { font-size: 18px; }
+  .work-overlay p  { font-size: 13px; }
+}
+
+/* Responsive solo per il titolo/ padding */
+@media (max-width: 640px) {
+  .works-slider { padding: 0 16px; }
+
+  .works-header h2 {
+    font-size: 22px;
+    text-align: center;
+  }
+
+  .works-slide {
+    padding: 0 44px; /* un po’ meno padding interno su mobile */
+  }
+}
 
 /* ==========================
    SEZIONE CLIENTI / COLLABORAZIONI
@@ -730,8 +701,8 @@ body {
   background: #000;
   padding: 60px 8% 80px;
   color: #fff;
-  border-top: 1px solid #222;              /* prima #111 */
-  box-shadow: 0 -1px 0 rgba(255,255,255,.04); /* leggerissimo chiarore */
+  border-top: 1px solid #222;
+  box-shadow: 0 -1px 0 rgba(255,255,255,.04);
 }
 
 .clients-inner {
@@ -757,7 +728,6 @@ body {
   line-height: 1.6;
 }
 
-/* Contenitore slider (frecce + loghi) */
 .clients-slider {
   position: relative;
   max-width: 1400px;
@@ -766,23 +736,19 @@ body {
   align-items: center;
 }
 
-/* RIGA loghi scrollabile orizzontalmente */
 .clients-logos {
   display: flex;
-  flex-wrap: nowrap;          /* tutti in una riga */
+  flex-wrap: nowrap;
   gap: 32px;
   align-items: center;
-  justify-content: flex-start;  /* <-- NON centrati, partono da sinistra */
-  overflow-x: auto;             /* scroll orizzontale se non ci stanno */
-  padding: 8px 80px;            /* spazio ai lati per le frecce */
-  scrollbar-width: none;        /* Firefox */
+  justify-content: flex-start;
+  overflow-x: auto;
+  padding: 8px 80px;
+  scrollbar-width: none;
 }
 
-.clients-logos::-webkit-scrollbar {
-  display: none;                /* Chrome/Safari */
-}
+.clients-logos::-webkit-scrollbar { display: none; }
 
-/* Singolo logo */
 .client-logo {
   flex: 0 0 auto;
   padding: 10px 14px;
@@ -794,7 +760,7 @@ body {
 }
 
 .client-logo img {
-  max-height: 35px;      /* altezza controllata */
+  max-height: 35px;
   width: auto;
   height: auto;
   object-fit: contain;
@@ -814,7 +780,6 @@ body {
   opacity: 1;
 }
 
-/* Frecce laterali (stile simile a portfolio) */
 .clients-arrow {
   position: absolute;
   top: 50%;
@@ -837,34 +802,19 @@ body {
 .clients-arrow:hover {
   background: rgba(255, 255, 255, 0.1);
   border-color: #fff;
-  transform: translateY(-52%);
+  transform: translateY(-50%) scale(1.03);
 }
 
-/* Posizione frecce */
-.clients-prev {
-  left: 0;
-}
-
-.clients-next {
-  right: 0;
-}
+.clients-prev { left: 0; }
+.clients-next { right: 0; }
 
 /* responsive */
 @media (max-width: 600px) {
-  .clients-section {
-    padding: 50px 6% 60px;
-  }
-
-  .clients-section h2 {
-    font-size: 22px;
-  }
-
-  .clients-subtitle {
-    font-size: 13px;
-  }
+  .clients-section { padding: 50px 6% 60px; }
+  .clients-section h2 { font-size: 22px; }
+  .clients-subtitle { font-size: 13px; }
+  .clients-logos { padding: 8px 40px; gap: 24px; }
 }
-
-
 
 /* ==========================
    SEZIONE CONTATTI
@@ -874,8 +824,8 @@ body {
   background: #000;
   padding: 80px 8% 100px;
   color: #fff;
-  border-top: 1px solid #222;              /* prima #111 */
-  box-shadow: 0 -1px 0 rgba(255,255,255,.04); /* leggerissimo chiarore */
+  border-top: 1px solid #222;
+  box-shadow: 0 -1px 0 rgba(255,255,255,.04);
 }
 
 .contact-inner {
@@ -887,7 +837,6 @@ body {
   align-items: flex-start;
 }
 
-/* Testo sinistra */
 .contact-text h2 {
   font-size: 28px;
   font-weight: 400;
@@ -910,7 +859,6 @@ body {
   line-height: 1.4;
 }
 
-/* Form destra */
 .contact-form-wrapper {
   background: radial-gradient(circle at top, #181818 0%, #000 60%);
   border-radius: 24px;
@@ -919,10 +867,7 @@ body {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
 }
 
-.contact-form label {
-  display: block;
-  margin-bottom: 16px;
-}
+.contact-form label { display: block; margin-bottom: 16px; }
 
 .contact-form span {
   display: block;
@@ -972,86 +917,17 @@ body {
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.6);
 }
 
-/* Responsive */
 @media (max-width: 900px) {
   .contact-inner {
     grid-template-columns: 1fr;
     gap: 32px;
   }
-
-  .contact-text h2 {
-    text-align: left;
-  }
+  .contact-text h2 { text-align: left; }
 }
 
 @media (max-width: 600px) {
-  .contact-section {
-    padding: 60px 6% 80px;
-  }
-
-  .contact-form-wrapper {
-    padding: 22px 18px;
-  }
-}
-
-/* FOOTER */
-.site-footer {
-  width: 100%;
-  padding: 25px 0 30px;
-  text-align: center;
-  background: #000;
-  color: #aaa;
-  font-size: 13px;
-  letter-spacing: 0.08em;
-  margin-top: 60px;
-}
-
-/* Linea di divisione */
-.footer-line {
-  width: 90%;
-  max-width: 1200px;
-  height: 1px;
-  background: linear-gradient(to right, #111, #333, #111);
-  margin: 0 auto 18px;
-  opacity: 0.6;
-}
-
-.footer-copy {
-  margin-top: 10px;
-  font-size: 11px;
-  color: #666;
-  letter-spacing: 0.1em;
-}
-
-/* Linea sottile sopra il footer */
-.footer-separator {
-  width: 100%;
-  border: 0;
-  border-top: 1px solid #222; /* sottile linea grigio scuro */
-  margin: 40px 0 0 0;
-}
-
-/* Footer */
-.site-footer {
-  width: 100%;
-  text-align: center;
-  padding: 12px 10px;
-  font-size: 0.9rem;
-  color: #ccc;
-  background: #000; /* sfondo per staccare dal resto */
-  letter-spacing: 0.5px;
-  white-space: nowrap; /* evita andare a capo */
-}
-
-.site-footer span {
-  padding: 0 8px;
-}
-
-@media (max-width: 800px) {
-  .site-footer {
-    white-space: normal;   /* su mobile va a capo se serve */
-    line-height: 1.6;
-  }
+  .contact-section { padding: 60px 6% 80px; }
+  .contact-form-wrapper { padding: 22px 18px; }
 }
 
 /* ==========================
@@ -1062,8 +938,8 @@ body {
   background: #000;
   padding: 60px 8% 80px;
   color: #fff;
-  border-top: 1px solid #222;              /* prima #111 */
-  box-shadow: 0 -1px 0 rgba(255,255,255,.04); /* leggerissimo chiarore */
+  border-top: 1px solid #222;
+  box-shadow: 0 -1px 0 rgba(255,255,255,.04);
 }
 
 .events-inner {
@@ -1089,27 +965,24 @@ body {
   line-height: 1.6;
 }
 
-/* Contenitore riga loghi */
 .events-slider {
   display: flex;
-  justify-content: center;   /* centra il blocco loghi */
+  justify-content: center;
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-/* Riga loghi centrata */
 .events-logos {
   display: flex;
   flex-wrap: nowrap;
   gap: 40px;
   align-items: center;
-  justify-content: center;   /* QUI il vero centro */
-  overflow-x: visible;       /* niente scroll orizzontale */
+  justify-content: center;
+  overflow-x: visible;
   padding: 16px 0;
 }
 
-/* Logo singolo */
 .event-logo {
   flex: 0 0 auto;
   padding: 18px 20px;
@@ -1139,10 +1012,7 @@ body {
   opacity: 1;
 }
 
-/* Se NON vuoi le frecce, puoi anche non usare questi stili e rimuovere i <button> dall'HTML */
-.events-arrow {
-  display: none;
-}
+.events-arrow { display: none; }
 
 /* ==========================
    SEZIONE CONTATTI & SOCIAL
@@ -1152,8 +1022,8 @@ body {
   background: #000;
   padding: 70px 8% 80px;
   color: #fff;
-  border-top: 1px solid #222;              /* prima #111 */
-  box-shadow: 0 -1px 0 rgba(255,255,255,.04); /* leggerissimo chiarore */
+  border-top: 1px solid #222;
+  box-shadow: 0 -1px 0 rgba(255,255,255,.04);
 }
 
 .social-inner {
@@ -1180,7 +1050,6 @@ body {
   text-align: center;
 }
 
-/* griglia 3 colonne */
 .social-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1196,7 +1065,6 @@ body {
   color: #bbbbbb;
 }
 
-/* Riga: cerchio + testo */
 .social-line {
   display: flex;
   align-items: center;
@@ -1206,7 +1074,6 @@ body {
   color: #fff;
 }
 
-/* cerchietto icona */
 .social-icon {
   width: 40px;
   height: 40px;
@@ -1226,32 +1093,60 @@ body {
   object-fit: contain;
 }
 
-/* testo a destra */
 .social-label {
   font-size: 14px;
   font-weight: 300;
   letter-spacing: 0.04em;
 }
 
-/* hover */
-.social-line:hover .social-label {
-  text-decoration: underline;
-}
+.social-line:hover .social-label { text-decoration: underline; }
+.social-line:hover .social-icon { background: rgba(255, 255, 255, 0.06); }
 
-.social-line:hover .social-icon {
-  background: rgba(255, 255, 255, 0.06);
-}
-
-/* responsive */
 @media (max-width: 900px) {
-  .social-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+  .social-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (max-width: 640px) {
-  .social-grid {
-    grid-template-columns: 1fr;
+  .social-grid { grid-template-columns: 1fr; }
+  .social-column h3 { text-align: left; }
+}
+
+/* FOOTER */
+.site-footer {
+  width: 100%;
+  text-align: center;
+  padding: 12px 10px;
+  font-size: 0.9rem;
+  color: #ccc;
+  background: #000;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  margin-top: 60px;
+}
+
+.footer-line {
+  width: 90%;
+  max-width: 1200px;
+  height: 1px;
+  background: linear-gradient(to right, #111, #333, #111);
+  margin: 0 auto 18px;
+  opacity: 0.6;
+}
+
+.footer-copy {
+  margin-top: 10px;
+  font-size: 11px;
+  color: #666;
+  letter-spacing: 0.1em;
+}
+
+.site-footer span { padding: 0 8px; }
+
+@media (max-width: 800px) {
+  .site-footer {
+    white-space: normal;
+    line-height: 1.6;
+    padding: 16px 6%;
   }
 }
 
@@ -1261,39 +1156,16 @@ body {
 
 /* Tablet */
 @media (max-width: 900px) {
-  body {
-    padding-top: 70px; /* topbar un po' più compatta */
-  }
-
-  .logo-mark img {
-    height: 70px;
-  }
-
-  .hero-slider {
-    height: 55vh;
-    min-height: 360px;
-  }
-
-  .works-slide img {
-    height: 220px;
-  }
-
-  .clients-logos {
-    padding: 8px 40px;
-    gap: 24px;
-  }
-
-  .events-logos {
-    gap: 24px;
-  }
+  body { padding-top: 70px; }
+  .logo-mark img { height: 70px; }
+  .hero-slider { height: 55vh; min-height: 360px; }
+  .clients-logos { padding: 8px 40px; gap: 24px; }
+  .events-logos { gap: 24px; }
 }
 
 /* Mobile */
 @media (max-width: 600px) {
-  .hero-slider {
-    height: 60vh;
-    min-height: 320px;
-  }
+  .hero-slider { height: 60vh; min-height: 320px; }
 
   .hero-arrow {
     font-size: 24px;
@@ -1308,350 +1180,32 @@ body {
 
   .clients-section,
   .contact-section,
-  .contact-social-section,
   .social-section,
   .events-section {
     padding-left: 6%;
     padding-right: 6%;
   }
-
-  .works-slide img {
-    height: 190px;
-  }
-
-  .social-column h3 {
-    text-align: left;
-  }
 }
 
 /* ==========================
-   ADATTAMENTI TABLET
-   (max 900px)
-============================== */
-@media (max-width: 900px) {
-
-  .hero-slider {
-    height: 55vh;
-    min-height: 420px;
-  }
-
-  .info-section {
-    padding: 50px 6% 30px;
-  }
-
-  .works-section {
-    padding: 50px 0 60px;
-  }
-
-  .clients-section {
-    padding: 40px 6% 50px;
-  }
-
-  .events-section {
-    padding: 40px 6% 50px;
-  }
-
-  .contact-section {
-    padding: 50px 6% 60px;
-  }
-
-  .social-section {
-    padding: 40px 6% 50px;
-  }
-
-  .contact-social-section {
-    padding: 40px 6% 50px;
-  }
-
-  .site-footer {
-    margin-top: 30px;
-    padding: 16px 6%;
-  }
-}
-
-/* ==========================
-   ADATTAMENTI MOBILE
-   (max 600px)
+   FIX MOBILE TOPBAR + HERO
 ============================== */
 @media (max-width: 600px) {
 
-  body {
-    padding-top: 70px; /* topbar un filo più piccola */
-  }
-
-  .topbar {
-    padding: 8px 14px;
-  }
-
-  .logo-mark img {
-    height: 70px;
-  }
-
-  .info-section {
-    padding: 40px 6% 20px;
-  }
-
-  .works-section {
-    padding: 40px 0 40px;
-  }
-
-  .clients-section,
-  .events-section,
-  .contact-section,
-  .social-section,
-  .contact-social-section {
-    padding-top: 35px;
-    padding-bottom: 40px;
-  }
-
-  .hero-content h1 {
-    font-size: 18px;
-    letter-spacing: 0.12em;
-  }
-
-  .scroll-down {
-    bottom: 60px;
-  }
-}
-
-@media (max-width: 600px) {
-
-  /* meno spazio vuoto tra info-card e lavori */
-  .works-section {
-    padding-top: 30px;
-    padding-bottom: 40px;
-  }
-
-  /* titolo e slider con lo stesso padding laterale */
-  .works-header {
-    padding: 0 16px;
-    text-align: center;
-  }
-
-  .works-slider {
-    padding: 0 16px;
-  }
-
-  .works-slide img {
-    height: 190px;
-  }
-}
-
-/* ==========================
-   FIX TABLET
-   (da 601 a 900px circa)
-============================== */
-@media (max-width: 900px) and (min-width: 601px) {
-
-  body {
-    padding-top: 90px; /* topbar un po' più alta su tablet */
-  }
-
-  .topbar {
-    padding: 8px 20px;
-  }
-
-  .logo-mark img {
-    height: 70px;
-  }
-
-  .hero-slider {
-    height: 60vh;
-    min-height: 380px;
-  }
-
-  .hero-content {
-    padding: 0 24px;
-  }
-
-  .hero-content h1 {
-    max-width: 90%;
-    font-size: 22px;
-    letter-spacing: 0.14em;
-  }
-
-  /* padding laterali un po' ridotti */
-  .info-section,
-  .works-section,
-  .clients-section,
-  .events-section,
-  .contact-section,
-  .social-section {
-    padding-left: 6%;
-    padding-right: 6%;
-  }
-
-  /* info in 2 colonne su tablet */
-  .info-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-/* ==========================
-   FIX MOBILE
-   (max 600px)
-============================== */
-@media (max-width: 600px) {
-
-  /* topbar più compatta e centrata */
-  body {
-    padding-top: 100px; /* la topbar va su 2 righe, così non copre l'hero */
-  }
-
-  .topbar {
-    padding: 8px 12px;
-    flex-wrap: wrap;
-    row-gap: 6px;
-  }
-
-  .topbar-left {
-    order: 1;
-  }
-
-  .topbar-right {
-    order: 2;
-  }
-
-  .topbar-center {
-    order: 3;
-    width: 100%;
-    padding: 0;
-    text-align: center;
-  }
-
-  .tagline {
-    font-size: 9px;
-    white-space: normal;     /* niente overflow orizzontale */
-    letter-spacing: 0.16em;
-  }
-
-  .logo-mark img {
-    height: 60px;
-  }
-
-  /* HERO: video piena larghezza e più “morbido” */
-  .hero-slider {
-    height: auto;
-    min-height: 70vh;
-  }
-
-  .hero-slide {
-    position: relative;
-  }
-
-  .hero-slide video {
-    border-radius: 0;        /* niente bordi arrotondati su mobile */
-    width: 100%;
-    height: 100%;
-  }
-
-  .hero-content {
-    padding: 0 16px;
-  }
-
-  .hero-content h1 {
-    max-width: 100%;
-    font-size: 18px;
-    letter-spacing: 0.12em;
-  }
-
-  .hero-prev {
-    left: 12px;
-  }
-
-  .hero-next {
-    right: 12px;
-  }
-
-  .scroll-down {
-    bottom: 50px;
-  }
-
-  /* INFO: una colonna sola */
-  .info-section {
-    padding: 40px 6% 20px;
-  }
-
-  .info-grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-
-  /* padding uniformati per tutte le sezioni */
-  .works-section,
-  .clients-section,
-  .events-section,
-  .contact-section,
-  .social-section {
-    padding-left: 6%;
-    padding-right: 6%;
-  }
-
-  /* slider lavori: titoli centrati, immagini più basse */
-  .works-header {
-    padding: 0 6%;
-    text-align: center;
-  }
-
-  .works-slider {
-    padding: 0 6%;
-  }
-
-  .works-slide img {
-    height: 190px;
-  }
-
-  /* griglie in una colonna */
-  .contact-inner {
-    grid-template-columns: 1fr;
-  }
-
-  .social-grid {
-    grid-template-columns: 1fr;
-  }
-
-  /* footer che può andare a capo senza schiacciarsi a sinistra */
-  .site-footer {
-    white-space: normal;
-    line-height: 1.5;
-    padding: 16px 6%;
-  }
-}
-
-@media (max-width: 600px) {
-
-  /* ...il resto delle regole che hai già... */
-
-  .tagline {
-    white-space: nowrap;       /* non andare a capo */
-    font-size: 8px;            /* più piccola per farcela stare */
-    letter-spacing: 0.14em;    /* un po’ meno spazio tra le lettere */
-    max-width: 100%;
-    overflow: hidden;          /* evita scroll orizzontale */
-  }
-}
-
-/* ==========================
-   MOBILE: TOPBAR + SLOGAN
-   (NON tocca il desktop)
-============================== */
-@media (max-width: 600px) {
+  body { padding-top: 70px; }
 
   .topbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-wrap: nowrap !important;   /* forza una sola riga */
+    flex-wrap: nowrap !important;
     padding: 8px 12px;
   }
 
   .topbar-left,
-  .topbar-right {
-    flex: 0 0 auto;
-  }
+  .topbar-right { flex: 0 0 auto; }
 
   .topbar-center {
-    order: 0;                       /* niente più riga sotto */
     flex: 1 1 auto;
     width: auto;
     padding: 0 8px;
@@ -1664,37 +1218,38 @@ body {
     font-size: 8px;
     letter-spacing: 0.14em;
     max-width: 100%;
-    overflow: hidden;               /* evita scroll orizzontale */
+    overflow: hidden;
   }
-}
 
-/* ==========================
-   MOBILE: FIX HERO SLIDER
-============================== */
-@media (max-width: 600px) {
+  .logo-mark img { height: 60px; }
 
   /* assicuriamoci che le slide restino sovrapposte */
-  .hero-slide {
-    position: absolute !important;
-  }
+  .hero-slide { position: absolute !important; }
 
-  /* altezza fissa dello slider su mobile */
   .hero-slider {
     height: 60vh;
     min-height: 360px;
   }
 
-  .hero-content {
-    padding: 0 16px;
+  .hero-slide video {
+    border-radius: 0;
+    width: 100%;
+    height: 100%;
   }
 
-  .hero-content h1 {
-    max-width: 100%;
-    font-size: 18px;
-    letter-spacing: 0.12em;
+  .hero-prev { left: 12px; }
+  .hero-next { right: 12px; }
+
+  .scroll-down { bottom: 50px; }
+
+  .site-footer {
+    white-space: normal;
+    line-height: 1.5;
+    padding: 16px 6%;
   }
 }
 
+/* Divider se vuoi usarlo */
 .section-divider {
   width: 100%;
   height: 1px;
@@ -1704,51 +1259,5 @@ body {
     rgba(255,255,255,0.12) 50%,
     rgba(255,255,255,0.03) 100%
   );
-  margin: 60px 0; /* distanza dalle sezioni */
-}
-
-/* ==========================
-   WORK OVERLAY (DESKTOP + BASE)
-============================== */
-
-.work-item {
-  position: relative;
-  overflow: hidden;
-  border-radius: 22px; /* se vuoi l'angolo come le immagini */
-}
-
-.work-item img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* overlay sopra l’immagine */
-.work-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.72);
-  color: #fff;
-
-  opacity: 0;
-  transform: translateY(10px);
-  transition: opacity .25s ease, transform .25s ease;
-
-  pointer-events: none;
-
-  /* layout testo */
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 22px;
-}
-
-/* DESKTOP hover */
-@media (hover: hover) and (pointer: fine) {
-  .work-item:hover .work-overlay {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
-  }
+  margin: 60px 0;
 }
