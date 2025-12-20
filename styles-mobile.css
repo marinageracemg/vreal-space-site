@@ -437,3 +437,94 @@ html, body {
     margin: 6px 0 !important;
   }
 }
+
+@media (max-width: 600px) {
+
+  /* track e slide: assicurati riga */
+  .works-track { overflow-x: auto; }
+  .works-slide { display: flex; gap: 12px; }
+
+  /* CARD più piccole */
+  .works-section .work-item{
+    flex: 0 0 72vw !important;   /* <— più piccole (prima 82vw) */
+    max-width: 320px !important;
+    aspect-ratio: 4 / 3 !important;
+    height: auto !important;
+    border-radius: 18px !important;
+    overflow: hidden !important;
+  }
+
+  /* OVERRIDE FORZATO contro il desktop */
+  .works-section .work-item img{
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+  }
+
+  /* annulla l’immagine desktop (height 260px / width auto) */
+  .work-item img{
+    height: 100% !important;
+    width: 100% !important;
+  }
+
+}
+
+/* =========================================
+   MOBILE: PORTFOLIO - CARD PIÙ PICCOLE + MENO "ZOOM"
+   (mettilo in fondo a styles-mobile.css)
+========================================= */
+@media (max-width: 600px) {
+
+  /* card più piccola e con ratio più "wide" (meno tagli) */
+  .works-section .work-item{
+    flex: 0 0 72vw !important;     /* più piccola (prima 82/78vw) */
+    width: 72vw !important;
+    max-width: 320px !important;   /* limite */
+    aspect-ratio: 16 / 10 !important; /* più larga -> meno effetto zoom */
+    height: auto !important;
+    border-radius: 22px;
+    overflow: hidden;
+  }
+
+  /* immagine: riempi bene ma con meno taglio */
+  .works-section .work-item img{
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    transform: none !important;    /* IMPORTANTISSIMO: niente zoom residuo */
+  }
+
+  /* se avevi hover-zoom da desktop, su mobile lo disattiviamo */
+  .works-section .work-item:hover img{
+    transform: none !important;
+  }
+
+  /* overlay: un filo più compatto */
+  .works-section .work-overlay{
+    padding: 14px !important;
+  }
+
+  .works-section .work-overlay h3{
+    font-size: 16px !important;
+    letter-spacing: 0.12em !important;
+  }
+
+  .works-section .work-overlay p{
+    font-size: 12px !important;
+    line-height: 1.35 !important;
+  }
+
+  /* spaziatura riga slider un po' più "mobile friendly" */
+  .works-section .works-slide{
+    gap: 12px !important;
+  }
+
+  /* frecce un po' più piccole (opzionale) */
+  .works-section .works-arrow{
+    width: 34px;
+    height: 34px;
+    font-size: 18px;
+  }
+}
