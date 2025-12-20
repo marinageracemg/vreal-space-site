@@ -1,26 +1,23 @@
 /* ==========================
    GLOBAL MOBILE FIXES
-   (max-width: 600px)
 ============================== */
-
 html, body {
   max-width: 100%;
   overflow-x: hidden;
 }
 
+/* stop auto-zoom testi iOS */
+html { -webkit-text-size-adjust: 100%; }
+
 /* La topbar è fixed → aggiungiamo spazio solo in MOBILE */
 @media (max-width: 600px) {
-  body {
-    padding-top: 80px;
-  }
+  body { padding-top: 80px; }
 }
 
 /* ==========================
    HERO SLIDER MOBILE
 ============================== */
-
 @media (max-width: 600px) {
-
   .hero-slider {
     position: relative;
     width: 100%;
@@ -28,10 +25,7 @@ html, body {
     min-height: 360px;
   }
 
-  .hero-slide {
-    position: absolute;
-    inset: 0;
-  }
+  .hero-slide { position: absolute; inset: 0; }
 
   .hero-slide video {
     width: 100%;
@@ -40,9 +34,7 @@ html, body {
     border-radius: 0;
   }
 
-  .hero-content {
-    padding: 0 16px;
-  }
+  .hero-content { padding: 0 16px; }
 
   .hero-content h1 {
     max-width: 90%;
@@ -51,25 +43,17 @@ html, body {
     letter-spacing: 0.11em;
   }
 
-  .hero-arrow {
-    font-size: 24px;
-    padding: 6px 10px;
-  }
-
+  .hero-arrow { font-size: 24px; padding: 6px 10px; }
   .hero-prev { left: 12px; }
   .hero-next { right: 12px; }
 
-  .scroll-down {
-    bottom: 50px;
-  }
+  .scroll-down { bottom: 50px; }
 }
 
 /* ==========================
    TOPBAR MOBILE/TABLET (<= 900px)
 ============================== */
-
 @media (max-width: 900px) {
-
   .topbar {
     display: flex;
     align-items: center;
@@ -110,7 +94,6 @@ html, body {
     display: block;
   }
 
-  /* slogan: può andare a capo su tablet */
   .tagline {
     font-size: 8px;
     letter-spacing: 0.14em;
@@ -121,11 +104,7 @@ html, body {
     text-overflow: ellipsis;
   }
 
-  .social-btn {
-    width: 24px;
-    height: 24px;
-    border-width: 1px;
-  }
+  .social-btn { width: 24px; height: 24px; border-width: 1px; }
 
   .social-btn img {
     width: 70%;
@@ -133,15 +112,8 @@ html, body {
     object-fit: contain;
   }
 
-  /* FIX MENU LINGUE */
-  .lang-switcher {
-    position: relative;
-  }
-
-  .topbar,
-  .lang-switcher {
-    overflow: visible !important;
-  }
+  .lang-switcher { position: relative; }
+  .topbar, .lang-switcher { overflow: visible !important; }
 
   .lang-menu {
     position: absolute;
@@ -154,10 +126,7 @@ html, body {
     z-index: 3000;
   }
 
-  .lang-menu li {
-    padding: 6px 10px;
-    font-size: 11px;
-  }
+  .lang-menu li { padding: 6px 10px; font-size: 11px; }
 
   .lang-btn {
     padding: 4px 10px;
@@ -166,11 +135,7 @@ html, body {
   }
 }
 
-/* ==========================
-   TOPBAR SOLO MOBILE (<= 600px)
-   - slogan NON va a capo
-============================== */
-
+/* slogan NON va a capo su mobile */
 @media (max-width: 600px) {
   .tagline {
     white-space: nowrap !important;
@@ -185,78 +150,74 @@ html, body {
    INFO SECTION MOBILE
 ============================== */
 @media (max-width: 600px) {
-
-  .info-section {
-    padding: 40px 6% 20px;
-  }
-
-  .info-grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-
-  .info-card {
-    padding: 24px 18px;
-  }
-
-  .info-card h3 {
-    font-size: 16px;
-  }
-
-  .info-list li {
-    font-size: 13px;
-  }
+  .info-section { padding: 40px 6% 20px; }
+  .info-grid { grid-template-columns: 1fr; gap: 24px; }
+  .info-card { padding: 24px 18px; }
+  .info-card h3 { font-size: 16px; }
+  .info-list li { font-size: 13px; }
 }
 
 /* ==========================
    VIDEO SECTION MOBILE
 ============================== */
 @media (max-width: 600px) {
-
-  .video-section {
-    padding: 20px 0 40px;
-  }
-
+  .video-section { padding: 20px 0 40px; }
   .video-wrapper {
     width: 94%;
     margin: 0 auto;
     border-radius: 16px;
   }
-
-  .video-wrapper video {
-    border-radius: 16px;
-  }
+  .video-wrapper video { border-radius: 16px; }
 }
 
 /* ==========================
-   OVERLAY MOBILE (TAP) - FIX
-   - titolo NON scende
-   - niente tagli strani
-   - stop auto-zoom testi iOS
+   PORTFOLIO MOBILE: CARD + OVERLAY
 ============================== */
-
-html {
-  -webkit-text-size-adjust: 100%;
-}
-
 @media (max-width: 600px) {
+  /* track e riga */
+  .works-track { overflow-x: auto; }
+  .works-slide { display: flex; gap: 12px; }
 
-  /* overlay: parte dall’alto (non più in basso) */
+  /* card più “wide” -> meno tagli */
+  .works-section .work-item{
+    flex: 0 0 72vw !important;
+    width: 72vw !important;
+    max-width: 320px !important;
+    aspect-ratio: 16 / 10 !important;
+    height: auto !important;
+    border-radius: 22px !important;
+    overflow: hidden !important;
+    position: relative;
+  }
+
+  .works-section .work-item img{
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    display: block !important;
+    transform: none !important;
+  }
+
+  /* overlay: parte dall’alto, scrollabile */
   .work-overlay{
     display: flex !important;
     flex-direction: column !important;
-    justify-content: flex-start !important;   /* <<< FIX: prima era flex-end */
-    align-items: flex-start;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
 
     opacity: 0;
     pointer-events: none;
     transform: translateY(10px);
     transition: opacity .25s ease, transform .25s ease;
 
-    padding: 16px 16px 14px;
-    overflow: auto;
-    max-height: 100%;
-    -webkit-overflow-scrolling: touch;
+    padding: 16px 26px 14px 16px !important; /* spazio a destra per scrollbar */
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+
+    position: absolute !important;
+    inset: 0 !important;
   }
 
   .work-item.is-active .work-overlay{
@@ -265,438 +226,106 @@ html {
     transform: translateY(0);
   }
 
-  /* tipografia più stabile (evita “salti” di altezza) */
   .work-overlay h3{
-    font-size: 17px;
+    font-size: 16px !important;
     line-height: 1.15;
     margin: 0 0 10px;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.10em;
     text-transform: uppercase;
+    word-break: break-word;
   }
 
   .work-overlay p{
-    font-size: 13px;
+    font-size: 12px !important;
     line-height: 1.35;
     margin: 6px 0;
   }
 
-  /* Se vuoi che il titolo non vada mai a capo troppo:
-     commenta pure se preferisci che vada a capo */
-  .work-overlay h3{
-    word-break: break-word;
+  /* fake scrollbar (iOS Safari friendly) */
+  .work-overlay .fake-scrollbar-track{
+    position: absolute;
+    top: 14px;
+    right: 10px;
+    bottom: 14px;
+    width: 8px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.10);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity .2s ease;
+  }
+
+  .work-overlay .fake-scrollbar-thumb{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 30px;
+    border-radius: 999px;
+    background: rgba(0,0,0,0.92);
+    border: 2px solid rgba(255,255,255,0.10);
+    pointer-events: none;
+  }
+
+  .work-item.is-active .work-overlay .fake-scrollbar-track{
+    opacity: 1;
   }
 }
-
 
 /* ==========================
    CLIENTS MOBILE
 ============================== */
 @media (max-width: 600px) {
-
-  .clients-section {
-    padding: 35px 6% 40px;
-  }
-
-  .clients-section h2 {
-    font-size: 22px;
-  }
-
-  .clients-subtitle {
-    font-size: 13px;
-  }
-
-  .clients-logos {
-    padding: 8px 40px;
-    gap: 24px;
-  }
+  .clients-section { padding: 35px 6% 40px; }
+  .clients-section h2 { font-size: 22px; }
+  .clients-subtitle { font-size: 13px; }
+  .clients-logos { padding: 8px 40px; gap: 24px; }
 }
 
 /* ==========================
    EVENTS MOBILE
 ============================== */
 @media (max-width: 600px) {
-
-  .events-section {
-    padding: 35px 6% 40px;
-  }
-
-  .events-section h2 {
-    font-size: 22px;
-  }
-
-  .events-subtitle {
-    font-size: 13px;
-  }
-
-  .events-logos {
-    gap: 24px;
-  }
+  .events-section { padding: 35px 6% 40px; }
+  .events-section h2 { font-size: 22px; }
+  .events-subtitle { font-size: 13px; }
+  .events-logos { gap: 24px; }
 }
 
 /* ==========================
    CONTACT FORM MOBILE
 ============================== */
 @media (max-width: 600px) {
-
-  .contact-section {
-    padding: 40px 6% 40px;
-  }
-
-  .contact-inner {
-    grid-template-columns: 1fr;
-    gap: 28px;
-  }
-
-  .contact-text h2 {
-    font-size: 22px;
-    text-align: left;
-  }
-
-  .contact-text p {
-    font-size: 13px;
-  }
-
-  .contact-form-wrapper {
-    padding: 20px 16px;
-  }
+  .contact-section { padding: 40px 6% 40px; }
+  .contact-inner { grid-template-columns: 1fr; gap: 28px; }
+  .contact-text h2 { font-size: 22px; text-align: left; }
+  .contact-text p { font-size: 13px; }
+  .contact-form-wrapper { padding: 20px 16px; }
 }
 
 /* ==========================
    SOCIAL MOBILE
 ============================== */
 @media (max-width: 600px) {
-
-  .social-section {
-    padding: 40px 6% 40px;
-  }
-
-  .social-section h2 {
-    font-size: 22px;
-  }
-
-  .social-subtitle {
-    font-size: 13px;
-  }
-
-  .social-grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-
-  .social-column h3 {
-    text-align: left;
-  }
+  .social-section { padding: 40px 6% 40px; }
+  .social-section h2 { font-size: 22px; }
+  .social-subtitle { font-size: 13px; }
+  .social-grid { grid-template-columns: 1fr; gap: 24px; }
+  .social-column h3 { text-align: left; }
 }
 
 /* ==========================
    FOOTER MOBILE
 ============================== */
 @media (max-width: 600px) {
-
   .site-footer {
     white-space: normal;
     line-height: 1.5;
     padding: 16px 6%;
     font-size: 12px;
   }
-
-  .site-footer span {
-    display: inline-block;
-    padding: 0 4px;
-  }
+  .site-footer span { display: inline-block; padding: 0 4px; }
 }
 
-/* ==========================
-   DISATTIVA MENU SOCIAL (se non lo usi)
-============================== */
-.social-toggle,
-.social-menu {
-  display: none !important;
-}
-
-/* =========================================
-   FIX PORTFOLIO MOBILE: niente "strisce"
-========================================= */
-@media (max-width: 600px) {
-
-  .works-section .work-item{
-    flex: 0 0 82vw !important;
-    max-width: 380px !important;
-    aspect-ratio: 4 / 3 !important;
-    height: auto !important;
-    border-radius: 22px !important;
-    overflow: hidden !important;
-  }
-
-  .works-section .work-item img{
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    display: block !important;
-  }
-
-  /* disattiva regole desktop che forzano "strisce" */
-  .works-section .works-slide img{
-    height: auto !important;
-    width: auto !important;
-  }
-
-  /* nasconde le <img> sciolte non dentro figure.work-item */
-  .works-section .works-slide > img{
-    display: none !important;
-  }
-
-  .works-section .work-overlay{
-    padding: 14px !important;
-    overflow: auto !important;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .works-section .work-overlay h3{
-    font-size: 16px !important;
-    margin: 0 0 6px !important;
-  }
-
-  .works-section .work-overlay p{
-    font-size: 12px !important;
-    line-height: 1.35 !important;
-    margin: 6px 0 !important;
-  }
-}
-
-@media (max-width: 600px) {
-
-  /* track e slide: assicurati riga */
-  .works-track { overflow-x: auto; }
-  .works-slide { display: flex; gap: 12px; }
-
-  /* CARD più piccole */
-  .works-section .work-item{
-    flex: 0 0 72vw !important;   /* <— più piccole (prima 82vw) */
-    max-width: 320px !important;
-    aspect-ratio: 4 / 3 !important;
-    height: auto !important;
-    border-radius: 18px !important;
-    overflow: hidden !important;
-  }
-
-  /* OVERRIDE FORZATO contro il desktop */
-  .works-section .work-item img{
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    display: block !important;
-  }
-
-  /* annulla l’immagine desktop (height 260px / width auto) */
-  .work-item img{
-    height: 100% !important;
-    width: 100% !important;
-  }
-
-}
-
-/* =========================================
-   MOBILE: PORTFOLIO - CARD PIÙ PICCOLE + MENO "ZOOM"
-   (mettilo in fondo a styles-mobile.css)
-========================================= */
-@media (max-width: 600px) {
-
-  /* card più piccola e con ratio più "wide" (meno tagli) */
-  .works-section .work-item{
-    flex: 0 0 72vw !important;     /* più piccola (prima 82/78vw) */
-    width: 72vw !important;
-    max-width: 320px !important;   /* limite */
-    aspect-ratio: 16 / 10 !important; /* più larga -> meno effetto zoom */
-    height: auto !important;
-    border-radius: 22px;
-    overflow: hidden;
-  }
-
-  /* immagine: riempi bene ma con meno taglio */
-  .works-section .work-item img{
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    object-position: center !important;
-    transform: none !important;    /* IMPORTANTISSIMO: niente zoom residuo */
-  }
-
-  /* se avevi hover-zoom da desktop, su mobile lo disattiviamo */
-  .works-section .work-item:hover img{
-    transform: none !important;
-  }
-
-  /* overlay: un filo più compatto */
-  .works-section .work-overlay{
-    padding: 14px !important;
-  }
-
-  .works-section .work-overlay h3{
-    font-size: 16px !important;
-    letter-spacing: 0.12em !important;
-  }
-
-  .works-section .work-overlay p{
-    font-size: 12px !important;
-    line-height: 1.35 !important;
-  }
-
-  /* spaziatura riga slider un po' più "mobile friendly" */
-  .works-section .works-slide{
-    gap: 12px !important;
-  }
-
-  /* frecce un po' più piccole (opzionale) */
-  .works-section .works-arrow{
-    width: 34px;
-    height: 34px;
-    font-size: 18px;
-  }
-}
-
-/* ==========================
-   MOBILE: SCROLLBAR OVERLAY (solo mobile)
-   - mostra una "barra" laterale per scorrere il testo
-============================== */
-@media (max-width: 600px) {
-
-  /* l’overlay deve poter scrollare */
-  .work-overlay{
-    overflow-y: auto !important;
-    overflow-x: hidden !important;
-    -webkit-overflow-scrolling: touch;
-
-    /* evita che il testo vada sotto i bordi */
-    padding-right: 18px !important; /* spazio per la scrollbar */
-  }
-
-  /* FIREFOX */
-  .work-overlay{
-    scrollbar-width: thin;
-    scrollbar-color: rgba(0,0,0,0.9) rgba(255,255,255,0.08);
-  }
-
-  /* CHROME / EDGE / ANDROID */
-  .work-overlay::-webkit-scrollbar{
-    width: 8px;            /* “barra” laterale */
-  }
-
-  .work-overlay::-webkit-scrollbar-track{
-    background: rgba(255,255,255,0.08);
-    border-radius: 999px;
-  }
-
-  .work-overlay::-webkit-scrollbar-thumb{
-    background: rgba(0,0,0,0.9);   /* la barra nera */
-    border-radius: 999px;
-    border: 2px solid rgba(255,255,255,0.08); /* stacco dal track */
-  }
-
-  .work-overlay::-webkit-scrollbar-thumb:hover{
-    background: rgba(0,0,0,1);
-  }
-}
-
-/* ==========================
-   MOBILE: OVERLAY SCROLL + SCROLLBAR FINTA (solo mobile)
-============================== */
-@media (max-width: 600px) {
-
-  .work-overlay{
-    overflow-y: auto !important;
-    overflow-x: hidden !important;
-    -webkit-overflow-scrolling: touch;
-    padding-right: 22px !important; /* spazio per la barra finta */
-    position: absolute;             /* deve essere un box "pieno" sopra l'immagine */
-    inset: 0;
-  }
-
-  /* Track fisso a destra */
-  .work-overlay .fake-scrollbar-track{
-    position: absolute;
-    top: 14px;
-    right: 10px;
-    bottom: 14px;
-    width: 8px;
-    border-radius: 999px;
-    background: rgba(255,255,255,0.10);
-    pointer-events: none; /* non blocca il tap/scroll */
-  }
-
-  /* Thumb nero che si muove */
-  .work-overlay .fake-scrollbar-thumb{
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 30px;                 /* verrà aggiornato via JS */
-    border-radius: 999px;
-    background: rgba(0,0,0,0.92);
-    border: 2px solid rgba(255,255,255,0.10);
-    pointer-events: none;
-  }
-
-  /* Mostriamo la barra solo quando l’overlay è aperto */
-  .work-overlay .fake-scrollbar-track{
-    opacity: 0;
-    transition: opacity .2s ease;
-  }
-  .work-item.is-active .work-overlay .fake-scrollbar-track{
-    opacity: 1;
-  }
-}
-
-/* ==========================
-   MOBILE ONLY: OVERLAY SCROLL + FAKE SCROLLBAR
-   (iOS Safari friendly)
-============================== */
-@media (max-width: 600px) {
-
-  /* overlay deve scrollare */
-  .work-overlay{
-    overflow-y: auto !important;
-    overflow-x: hidden !important;
-    -webkit-overflow-scrolling: touch !important;
-
-    /* spazio per la barra laterale */
-    padding-right: 26px !important;
-
-    position: absolute !important;
-    inset: 0 !important;
-  }
-
-  /* Track fisso a destra (barra “canale”) */
-  .work-overlay .fake-scrollbar-track{
-    position: absolute;
-    top: 14px;
-    right: 10px;
-    bottom: 14px;
-    width: 8px;
-    border-radius: 999px;
-    background: rgba(255,255,255,0.10);
-    pointer-events: none;
-
-    opacity: 0;
-    transition: opacity .2s ease;
-  }
-
-  /* Thumb nero (si muove) */
-  .work-overlay .fake-scrollbar-thumb{
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-
-    height: 30px; /* aggiornata via JS */
-    border-radius: 999px;
-    background: rgba(0,0,0,0.92);
-    border: 2px solid rgba(255,255,255,0.10);
-    pointer-events: none;
-  }
-
-  /* Mostra la barra solo quando overlay è aperto */
-  .work-item.is-active .work-overlay .fake-scrollbar-track{
-    opacity: 1;
-  }
-}
+/* DISATTIVA MENU SOCIAL (se non lo usi) */
+.social-toggle, .social-menu { display: none !important; }
