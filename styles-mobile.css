@@ -597,3 +597,52 @@ html {
     background: rgba(0,0,0,1);
   }
 }
+
+/* ==========================
+   MOBILE: OVERLAY SCROLL + SCROLLBAR FINTA (solo mobile)
+============================== */
+@media (max-width: 600px) {
+
+  .work-overlay{
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch;
+    padding-right: 22px !important; /* spazio per la barra finta */
+    position: absolute;             /* deve essere un box "pieno" sopra l'immagine */
+    inset: 0;
+  }
+
+  /* Track fisso a destra */
+  .work-overlay .fake-scrollbar-track{
+    position: absolute;
+    top: 14px;
+    right: 10px;
+    bottom: 14px;
+    width: 8px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.10);
+    pointer-events: none; /* non blocca il tap/scroll */
+  }
+
+  /* Thumb nero che si muove */
+  .work-overlay .fake-scrollbar-thumb{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 30px;                 /* verrà aggiornato via JS */
+    border-radius: 999px;
+    background: rgba(0,0,0,0.92);
+    border: 2px solid rgba(255,255,255,0.10);
+    pointer-events: none;
+  }
+
+  /* Mostriamo la barra solo quando l’overlay è aperto */
+  .work-overlay .fake-scrollbar-track{
+    opacity: 0;
+    transition: opacity .2s ease;
+  }
+  .work-item.is-active .work-overlay .fake-scrollbar-track{
+    opacity: 1;
+  }
+}
