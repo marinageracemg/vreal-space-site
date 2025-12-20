@@ -229,38 +229,64 @@ html, body {
 }
 
 /* ==========================
-   OVERLAY MOBILE (TAP)
-   - usa SOLO .is-active
+   OVERLAY MOBILE (TAP) - FIX
+   - titolo NON scende
+   - niente tagli strani
+   - stop auto-zoom testi iOS
 ============================== */
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
 @media (max-width: 600px) {
 
-  .work-overlay {
+  /* overlay: parte dall’alto (non più in basso) */
+  .work-overlay{
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;   /* <<< FIX: prima era flex-end */
+    align-items: flex-start;
+
     opacity: 0;
     pointer-events: none;
     transform: translateY(10px);
     transition: opacity .25s ease, transform .25s ease;
-    padding: 16px;
+
+    padding: 16px 16px 14px;
     overflow: auto;
+    max-height: 100%;
     -webkit-overflow-scrolling: touch;
   }
 
-  .work-item.is-active .work-overlay {
+  .work-item.is-active .work-overlay{
     opacity: 1;
     pointer-events: auto;
     transform: translateY(0);
   }
 
-  .work-overlay h3 {
-    font-size: 18px;
-    margin: 0 0 8px;
+  /* tipografia più stabile (evita “salti” di altezza) */
+  .work-overlay h3{
+    font-size: 17px;
+    line-height: 1.15;
+    margin: 0 0 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
   }
 
-  .work-overlay p {
+  .work-overlay p{
     font-size: 13px;
     line-height: 1.35;
     margin: 6px 0;
   }
+
+  /* Se vuoi che il titolo non vada mai a capo troppo:
+     commenta pure se preferisci che vada a capo */
+  .work-overlay h3{
+    word-break: break-word;
+  }
 }
+
 
 /* ==========================
    CLIENTS MOBILE
