@@ -588,5 +588,28 @@ html, body {
   }
 }
 
+/* ==========================
+   WORK OVERLAY (MOBILE TAP)
+============================== */
+@media (max-width: 600px) {
+
+  /* quando è attivo (tap) mostra l’overlay */
+  .work-item.is-active .work-overlay {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  /* su mobile spesso le descrizioni sono lunghe: rendiamo scrollabile l’overlay */
+  .work-overlay {
+    padding: 16px;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* opzionale: testo un filo più piccolo */
+  .work-overlay h3 { font-size: 20px; margin: 0 0 8px; }
+  .work-overlay p  { font-size: 14px; line-height: 1.35; margin: 6px 0; }
+}
 
 
