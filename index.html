@@ -1231,6 +1231,41 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const isMobile = window.matchMedia("(max-width: 600px)").matches;
+  if (!isMobile) return;
+
+  const items = document.querySelectorAll(".work-item");
+
+  // chiude tutti
+  const closeAll = () => {
+    items.forEach(i => i.classList.remove("is-active"));
+  };
+
+  items.forEach(item => {
+    item.addEventListener("click", (e) => {
+      e.stopPropagation();
+
+      // se era già aperto -> chiudi
+      const alreadyOpen = item.classList.contains("is-active");
+      closeAll();
+      if (!alreadyOpen) item.classList.add("is-active");
+    });
+  });
+
+  // tap fuori -> chiudi
+  document.addEventListener("click", closeAll);
+
+  // scroll/swipe -> chiudi (opzionale ma spesso migliora UX)
+  const track = document.querySelector(".works-track");
+  if (track) {
+    track.addEventListener("scroll", closeAll, { passive: true });
+    track.addEventListener("touchmove", closeAll, { passive: true });
+  }
+});
+</script>
+
 
 </body>
 </html>
