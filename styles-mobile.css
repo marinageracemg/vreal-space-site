@@ -646,3 +646,57 @@ html {
     opacity: 1;
   }
 }
+
+/* ==========================
+   MOBILE ONLY: OVERLAY SCROLL + FAKE SCROLLBAR
+   (iOS Safari friendly)
+============================== */
+@media (max-width: 600px) {
+
+  /* overlay deve scrollare */
+  .work-overlay{
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+
+    /* spazio per la barra laterale */
+    padding-right: 26px !important;
+
+    position: absolute !important;
+    inset: 0 !important;
+  }
+
+  /* Track fisso a destra (barra “canale”) */
+  .work-overlay .fake-scrollbar-track{
+    position: absolute;
+    top: 14px;
+    right: 10px;
+    bottom: 14px;
+    width: 8px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.10);
+    pointer-events: none;
+
+    opacity: 0;
+    transition: opacity .2s ease;
+  }
+
+  /* Thumb nero (si muove) */
+  .work-overlay .fake-scrollbar-thumb{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 30px; /* aggiornata via JS */
+    border-radius: 999px;
+    background: rgba(0,0,0,0.92);
+    border: 2px solid rgba(255,255,255,0.10);
+    pointer-events: none;
+  }
+
+  /* Mostra la barra solo quando overlay è aperto */
+  .work-item.is-active .work-overlay .fake-scrollbar-track{
+    opacity: 1;
+  }
+}
