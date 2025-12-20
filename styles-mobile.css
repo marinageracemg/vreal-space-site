@@ -74,7 +74,7 @@ html, body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-wrap: nowrap;              /* tutto su una sola riga */
+    flex-wrap: nowrap;
     gap: 8px;
     padding: 6px 10px;
   }
@@ -133,12 +133,6 @@ html, body {
     object-fit: contain;
   }
 
-  .lang-btn {
-    padding: 4px 8px;
-    font-size: 9px;
-    letter-spacing: 0.1em;
-  }
-
   /* FIX MENU LINGUE */
   .lang-switcher {
     position: relative;
@@ -168,16 +162,16 @@ html, body {
   .lang-btn {
     padding: 4px 10px;
     font-size: 10px;
+    letter-spacing: 0.1em;
   }
 }
 
 /* ==========================
    TOPBAR SOLO MOBILE (<= 600px)
-   - slogan NON va a capo (per evitare layout brutto)
+   - slogan NON va a capo
 ============================== */
 
 @media (max-width: 600px) {
-
   .tagline {
     white-space: nowrap !important;
     font-size: 8px;
@@ -235,80 +229,27 @@ html, body {
 }
 
 /* ==========================
-   WORKS / PORTFOLIO MOBILE
-   - IMPORTANTISSIMO: niente più "img height: 180px"
-   - usiamo le card .work-item proporzionate
-============================== */
-@media (max-width: 600px) {
-
-  .works-section {
-    padding: 40px 0 40px;
-  }
-
-  .works-header {
-    padding: 0 6%;
-    text-align: center;
-  }
-
-  .works-header h2 {
-    font-size: 20px;
-    letter-spacing: 0.18em;
-  }
-
-  .works-slider {
-    padding: 0 6%;
-  }
-
-  .works-arrow {
-    width: 36px;
-    height: 36px;
-    font-size: 18px;
-  }
-
-  /* card lavoro: NON striscia, proporzionata */
-  .work-item {
-    width: 78vw;
-    max-width: 360px;
-    aspect-ratio: 4 / 3;
-    height: auto;
-    border-radius: 22px;
-    overflow: hidden;
-  }
-
-  .work-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-}
-
-/* ==========================
    OVERLAY MOBILE (TAP)
-   - usa SOLO .is-active (coerente col JS)
+   - usa SOLO .is-active
 ============================== */
 @media (max-width: 600px) {
 
-  /* base */
   .work-overlay {
     opacity: 0;
     pointer-events: none;
     transform: translateY(10px);
     transition: opacity .25s ease, transform .25s ease;
     padding: 16px;
-
-    /* se testo lungo, scroll dentro overlay */
     overflow: auto;
     -webkit-overflow-scrolling: touch;
   }
 
-  /* attivo su tap */
   .work-item.is-active .work-overlay {
     opacity: 1;
     pointer-events: auto;
     transform: translateY(0);
   }
 
-  /* tipografia overlay */
   .work-overlay h3 {
     font-size: 18px;
     margin: 0 0 8px;
@@ -445,4 +386,54 @@ html, body {
 .social-toggle,
 .social-menu {
   display: none !important;
+}
+
+/* =========================================
+   FIX PORTFOLIO MOBILE: niente "strisce"
+========================================= */
+@media (max-width: 600px) {
+
+  .works-section .work-item{
+    flex: 0 0 82vw !important;
+    max-width: 380px !important;
+    aspect-ratio: 4 / 3 !important;
+    height: auto !important;
+    border-radius: 22px !important;
+    overflow: hidden !important;
+  }
+
+  .works-section .work-item img{
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+  }
+
+  /* disattiva regole desktop che forzano "strisce" */
+  .works-section .works-slide img{
+    height: auto !important;
+    width: auto !important;
+  }
+
+  /* nasconde le <img> sciolte non dentro figure.work-item */
+  .works-section .works-slide > img{
+    display: none !important;
+  }
+
+  .works-section .work-overlay{
+    padding: 14px !important;
+    overflow: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .works-section .work-overlay h3{
+    font-size: 16px !important;
+    margin: 0 0 6px !important;
+  }
+
+  .works-section .work-overlay p{
+    font-size: 12px !important;
+    line-height: 1.35 !important;
+    margin: 6px 0 !important;
+  }
 }
